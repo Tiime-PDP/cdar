@@ -1,0 +1,25 @@
+{
+    "name": "tiimepdp/cdar",
+    "description": "CDAR PHP - Cross Domain Acknowledgement and Response Library",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "TiimePDP\\CrossDomainAcknowledgementAndResponse\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TiimePDP\\CrossDomainAcknowledgementAndResponse\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.3",
+        "ext-dom": "*"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1",
+        "friendsofphp/php-cs-fixer": "^3.93",
+        "phpunit/phpunit": "^12.5"
+    }
+}
