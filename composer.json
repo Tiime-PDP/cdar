@@ -2,7 +2,7 @@
     "name": "tiimepdp/cdar",
     "description": "CDAR PHP - Cross Domain Acknowledgement and Response Library",
     "type": "library",
-    "license": "MIT",
+    "license": "GPL-3.0-or-later",
     "autoload": {
         "psr-4": {
             "TiimePDP\\CrossDomainAcknowledgementAndResponse\\": "src/"
