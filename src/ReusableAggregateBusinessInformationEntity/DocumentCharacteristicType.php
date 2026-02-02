@@ -18,86 +18,89 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\QuantityT
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
 /**
- * Document characteristic
+ * Document characteristic.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class DocumentCharacteristicType
 {
     /**
-     * Identifier
+     * Identifier.
      */
     private ?IDType $ID;
 
     /**
-     * Type code
+     * Type code.
      */
     private ?CodeType $typeCode;
 
     /**
-     * Value changed indicator
+     * Value changed indicator.
      */
     private ?IndicatorType $valueChangedIndicator;
 
     /**
-     * Value adjustment direction code
+     * Value adjustment direction code.
      */
     private ?CodeType $valueAdjustmentDirectionCode;
 
     /**
-     * Names
+     * Names.
+     *
      * @var array<TextType>
      */
     private array $name;
 
     /**
-     * Descriptions
+     * Descriptions.
+     *
      * @var array<TextType>
      */
     private array $description;
 
     /**
-     * Location
+     * Location.
      */
     private ?TextType $location;
 
     /**
-     * Values
+     * Values.
+     *
      * @var array<TextType>
      */
     private array $value;
 
     /**
-     * Value amount
+     * Value amount.
      */
     private ?AmountType $valueAmount;
 
     /**
-     * Value measure
+     * Value measure.
      */
     private ?MeasureType $valueMeasure;
 
     /**
-     * Value date time
+     * Value date time.
      */
     private ?DateTimeType $valueDateTime;
 
     /**
-     * Value code
+     * Value code.
      */
     private ?CodeType $valueCode;
 
     /**
-     * Value quantity
+     * Value quantity.
      */
     private ?QuantityType $valueQuantity;
 
     /**
-     * Value numeric
+     * Value numeric.
      */
     private ?NumericType $valueNumeric;
 
     /**
-     * Value percent
+     * Value percent.
      */
     private ?PercentType $valuePercent;
 

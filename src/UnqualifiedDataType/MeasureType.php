@@ -9,23 +9,23 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Unqualified measure data type
+ * Unqualified measure data type.
  */
 #[SerializedNamespace(NamespaceUri::UDT)]
 final readonly class MeasureType implements ValueObjectInterface
 {
     /**
-     * Measure value
+     * Measure value.
      */
     private string $value;
 
     /**
-     * Unit code
+     * Unit code.
      */
     private ?string $unitCode;
 
     /**
-     * Unit code list version identifier
+     * Unit code list version identifier.
      */
     private ?string $unitCodeListVersionID;
 

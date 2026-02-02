@@ -6,7 +6,7 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist;
 
 /**
  * UNECE message function code - Acknowledgement
- * Version D23A
+ * Version D23A.
  */
 enum MessageFunctionCodeAcknowledgement: string
 {

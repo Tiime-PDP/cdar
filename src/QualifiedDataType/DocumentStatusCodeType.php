@@ -9,33 +9,33 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Qualified document status code type
+ * Qualified document status code type.
  */
 #[SerializedNamespace(NamespaceUri::QDT)]
 final readonly class DocumentStatusCodeType implements ValueObjectInterface
 {
     /**
-     * Code value
+     * Code value.
      */
     private string $value;
 
     /**
-     * List identifier (fixed to "1373")
+     * List identifier (fixed to "1373").
      */
     private ?string $listID;
 
     /**
-     * List agency identifier (fixed to "6" for UNECE)
+     * List agency identifier (fixed to "6" for UNECE).
      */
     private ?string $listAgencyID;
 
     /**
-     * List version identifier (fixed to "D23A")
+     * List version identifier (fixed to "D23A").
      */
     private ?string $listVersionID;
 
     /**
-     * Code name
+     * Code name.
      */
     private ?string $name;
 

@@ -14,7 +14,7 @@ final class IndicatorStringType implements ValueObjectInterface
     private string $value;
 
     /**
-     * Indicator format
+     * Indicator format.
      */
     private ?string $format;
 

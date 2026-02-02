@@ -9,18 +9,18 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Qualified language identifier type (ISO Alpha-2 code)
+ * Qualified language identifier type (ISO Alpha-2 code).
  */
 #[SerializedNamespace(NamespaceUri::QDT)]
 final readonly class LanguageIDType implements ValueObjectInterface
 {
     /**
-     * ISO Alpha-2 language code
+     * ISO Alpha-2 language code.
      */
     private string $value;
 
     /**
-     * Scheme agency identifier (fixed to "5" for ISO)
+     * Scheme agency identifier (fixed to "5" for ISO).
      */
     private ?string $schemeAgencyID;
 

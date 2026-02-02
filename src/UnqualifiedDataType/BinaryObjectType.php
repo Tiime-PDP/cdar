@@ -9,43 +9,43 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Unqualified binary object data type
+ * Unqualified binary object data type.
  */
 #[SerializedNamespace(NamespaceUri::UDT)]
 final readonly class BinaryObjectType implements ValueObjectInterface
 {
     /**
-     * Binary object value encoded in base64
+     * Binary object value encoded in base64.
      */
     private string $value;
 
     /**
-     * Object format
+     * Object format.
      */
     private ?string $format;
 
     /**
-     * MIME code
+     * MIME code.
      */
     private ?string $mimeCode;
 
     /**
-     * Encoding code
+     * Encoding code.
      */
     private ?string $encodingCode;
 
     /**
-     * Character set code
+     * Character set code.
      */
     private ?string $characterSetCode;
 
     /**
-     * Object URI
+     * Object URI.
      */
     private ?string $uri;
 
     /**
-     * File name
+     * File name.
      */
     private ?string $filename;
 

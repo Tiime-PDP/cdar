@@ -6,7 +6,7 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist;
 
 /**
  * UNECE reference type code
- * Version D23A
+ * Version D23A.
  *
  * Complete list of all reference type codes from UN/EDIFACT specification 1153 D23A.
  */

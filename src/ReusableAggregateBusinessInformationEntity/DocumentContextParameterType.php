@@ -9,13 +9,13 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
 
 /**
- * Document context parameter
+ * Document context parameter.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class DocumentContextParameterType
 {
     /**
-     * Parameter identifier
+     * Parameter identifier.
      */
     private IDType $ID;
 

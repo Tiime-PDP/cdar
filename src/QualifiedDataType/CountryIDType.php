@@ -9,18 +9,18 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Qualified country identifier type (ISO two-letter code)
+ * Qualified country identifier type (ISO two-letter code).
  */
 #[SerializedNamespace(NamespaceUri::QDT)]
 final readonly class CountryIDType implements ValueObjectInterface
 {
     /**
-     * ISO two-letter country code
+     * ISO two-letter country code.
      */
     private string $value;
 
     /**
-     * Scheme agency identifier (fixed to "5" for ISO)
+     * Scheme agency identifier (fixed to "5" for ISO).
      */
     private ?string $schemeAgencyID;
 

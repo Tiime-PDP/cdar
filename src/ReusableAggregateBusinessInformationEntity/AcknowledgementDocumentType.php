@@ -16,89 +16,93 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\Indicator
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
 /**
- * Acknowledgement document
+ * Acknowledgement document.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class AcknowledgementDocumentType
 {
     /**
-     * Multiple references indicator
+     * Multiple references indicator.
      */
     private ?IndicatorType $multipleReferencesIndicator;
 
     /**
-     * Identifier
+     * Identifier.
      */
     private ?IDType $ID;
 
     /**
-     * Type code
+     * Type code.
      */
     private ?DocumentCodeType $typeCode;
 
     /**
-     * Name
+     * Name.
      */
     private ?TextType $name;
 
     /**
-     * Issue date time
+     * Issue date time.
      */
     private ?DateTimeType $issueDateTime;
 
     /**
-     * Status code
+     * Status code.
      */
     private ?StatusCodeType $statusCode;
 
     /**
-     * Acknowledgement status code
+     * Acknowledgement status code.
      */
     private ?AcknowledgementCodeType $acknowledgementStatusCode;
 
     /**
-     * Item identification identifier
+     * Item identification identifier.
      */
     private ?IDType $itemIdentificationID;
 
     /**
-     * Reason information
+     * Reason information.
+     *
      * @var array<TextType>
      */
     private array $reasonInformation;
 
     /**
-     * Channel code
+     * Channel code.
      */
     private ?CodeType $channelCode;
 
     /**
-     * Process condition code
+     * Process condition code.
      */
     private ?CodeType $processConditionCode;
 
     /**
-     * Process conditions
+     * Process conditions.
+     *
      * @var array<TextType>
      */
     private array $processCondition;
 
     /**
-     * Statuses
+     * Statuses.
+     *
      * @var array<TextType>
      */
     private array $status;
 
     /**
-     * Reference documents
+     * Reference documents.
+     *
      * @var array<ReferencedDocumentType>
      */
     private array $referenceReferencedDocument;
 
     /**
-     * @param array<TextType> $reasonInformation
-     * @param array<TextType> $processCondition
-     * @param array<TextType> $status
+     * @param array<TextType>               $reasonInformation
+     * @param array<TextType>               $processCondition
+     * @param array<TextType>               $status
      * @param array<ReferencedDocumentType> $referenceReferencedDocument
      */
     public function __construct(

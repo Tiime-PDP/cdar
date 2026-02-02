@@ -14,85 +14,87 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\Indicator
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
 /**
- * Exchanged document
+ * Exchanged document.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class ExchangedDocumentType
 {
     /**
-     * Identifier
+     * Identifier.
      */
     private ?IDType $ID;
 
     /**
-     * Name
+     * Name.
      */
     private ?TextType $name;
 
     /**
-     * Type code
+     * Type code.
      */
     private ?DocumentCodeType $typeCode;
 
     /**
-     * Status code
+     * Status code.
      */
     private ?DocumentStatusCodeType $statusCode;
 
     /**
-     * Issue date time
+     * Issue date time.
      */
     private ?DateTimeType $issueDateTime;
 
     /**
-     * Language identifier
+     * Language identifier.
      */
     private ?IDType $languageID;
 
     /**
-     * Electronic presentation indicator
+     * Electronic presentation indicator.
      */
     private ?IndicatorType $electronicPresentationIndicator;
 
     /**
-     * Version identifier
+     * Version identifier.
      */
     private ?IDType $versionID;
 
     /**
-     * Global identifier
+     * Global identifier.
      */
     private ?IDType $globalID;
 
     /**
-     * Included notes
+     * Included notes.
+     *
      * @var array<NoteType>
      */
     private array $includedNote;
 
     /**
-     * Effective specified period
+     * Effective specified period.
      */
     private ?SpecifiedPeriodType $effectiveSpecifiedPeriod;
 
     /**
-     * Sender party
+     * Sender party.
      */
     private ?TradePartyType $senderTradeParty;
 
     /**
-     * Issuer party
+     * Issuer party.
      */
     private ?TradePartyType $issuerTradeParty;
 
     /**
-     * Recipient parties
+     * Recipient parties.
+     *
      * @var array<TradePartyType>
      */
     private array $recipientTradeParty;
 
     /**
-     * @param array<NoteType> $includedNote
+     * @param array<NoteType>       $includedNote
      * @param array<TradePartyType> $recipientTradeParty
      */
     public function __construct(

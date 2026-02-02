@@ -6,7 +6,7 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist;
 
 /**
  * UNECE contact function code
- * Version D23A
+ * Version D23A.
  */
 enum ContactFunctionCode: string
 {

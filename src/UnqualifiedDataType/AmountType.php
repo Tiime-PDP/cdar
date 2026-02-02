@@ -9,23 +9,23 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Unqualified amount data type
+ * Unqualified amount data type.
  */
 #[SerializedNamespace(NamespaceUri::UDT)]
 final readonly class AmountType implements ValueObjectInterface
 {
     /**
-     * Amount value
+     * Amount value.
      */
     private string $value;
 
     /**
-     * Currency identifier
+     * Currency identifier.
      */
     private ?string $currencyID;
 
     /**
-     * Currency code list version identifier
+     * Currency code list version identifier.
      */
     private ?string $currencyCodeListVersionID;
 
