@@ -9,18 +9,18 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Unqualified percent data type
+ * Unqualified percent data type.
  */
 #[SerializedNamespace(NamespaceUri::UDT)]
 final readonly class PercentType implements ValueObjectInterface
 {
     /**
-     * Percent value
+     * Percent value.
      */
     private string $value;
 
     /**
-     * Percent format
+     * Percent format.
      */
     private ?string $format;
 

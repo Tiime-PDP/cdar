@@ -12,23 +12,24 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 
 /**
  * Cross Domain Acknowledgement and Response message
- * UN/EDIFACT D23B standard
+ * UN/EDIFACT D23B standard.
  */
 #[SerializedNamespace(NamespaceUri::RSM)]
 final readonly class CrossDomainAcknowledgementAndResponse
 {
     /**
-     * Exchanged document context
+     * Exchanged document context.
      */
     private ?ExchangedDocumentContextType $exchangedDocumentContext;
 
     /**
-     * Exchanged document
+     * Exchanged document.
      */
     private ExchangedDocumentType $exchangedDocument;
 
     /**
-     * Acknowledgement documents
+     * Acknowledgement documents.
+     *
      * @var array<AcknowledgementDocumentType>
      */
     private array $acknowledgementDocument;

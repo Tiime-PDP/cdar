@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Enum;
 
 /**
- * Namespace URIs used by the CDAR serializer
+ * Namespace URIs used by the CDAR serializer.
  */
 enum NamespaceUri: string
 {

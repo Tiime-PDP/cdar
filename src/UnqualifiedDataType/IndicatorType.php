@@ -8,18 +8,18 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 
 /**
- * Unqualified indicator data type
+ * Unqualified indicator data type.
  */
 #[SerializedNamespace(NamespaceUri::UDT)]
 final readonly class IndicatorType
 {
     /**
-     * Indicator string
+     * Indicator string.
      */
     private ?IndicatorStringType $indicatorString;
 
     /**
-     * Boolean indicator value
+     * Boolean indicator value.
      */
     private ?bool $indicator;
 

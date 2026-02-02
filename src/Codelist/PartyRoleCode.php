@@ -1,12 +1,16 @@
 <?php
+
 declare(strict_types=1);
+
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist;
+
 /**
  * UNECE party role code
- * Version D23A
+ * Version D23A.
  */
 enum PartyRoleCode: string
-{    case ROLE_AA = 'AA';
+{
+    case ROLE_AA = 'AA';
     case ROLE_AB = 'AB';
     case ROLE_AE = 'AE';
     case ROLE_AF = 'AF';

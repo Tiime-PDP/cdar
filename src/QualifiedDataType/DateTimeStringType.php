@@ -13,12 +13,12 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 final class DateTimeStringType implements ValueObjectInterface
 {
     /**
-     * Date time string value
+     * Date time string value.
      */
     private string $value;
 
     /**
-     * Date time format
+     * Date time format.
      */
     private TimePointFormatCode $format;
 

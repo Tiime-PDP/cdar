@@ -9,7 +9,7 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * UN/EDIFACT D23B Serializer to XML
+ * UN/EDIFACT D23B Serializer to XML.
  */
 final class Serializer
 {
@@ -35,10 +35,7 @@ final class Serializer
                 isRoot: true,
             );
         } catch (\DOMException|\ReflectionException $exception) {
-            throw new SerializationException(
-                message: 'Failed to serialize CrossDomainAcknowledgementAndResponse to XML: ' . $exception->getMessage(),
-                previous: $exception,
-            );
+            throw new SerializationException(message: 'Failed to serialize CrossDomainAcknowledgementAndResponse to XML: '.$exception->getMessage(), previous: $exception);
         }
 
         $this->doc->appendChild($rootElement);
@@ -53,7 +50,7 @@ final class Serializer
     }
 
     /**
-     * Serialize an object to a DOMElement with proper UN/EDIFACT structure
+     * Serialize an object to a DOMElement with proper UN/EDIFACT structure.
      *
      * @throws \DOMException|\ReflectionException
      */
@@ -63,7 +60,7 @@ final class Serializer
         string $parentNamespacePrefix,
         bool $isRoot = false,
     ): \DOMElement {
-        $element = $this->doc->createElement($parentNamespacePrefix . ':' . $elementName);
+        $element = $this->doc->createElement($parentNamespacePrefix.':'.$elementName);
 
         $namespaceUri = $this->getNamespaceUriForClass($object);
         $namespacePrefix = $namespaceUri->prefix();
@@ -72,7 +69,7 @@ final class Serializer
             foreach (NamespaceUri::cases() as $namespaceUri) {
                 $element->setAttributeNS(
                     namespace: 'http://www.w3.org/2000/xmlns/',
-                    qualifiedName: 'xmlns:' . $namespaceUri->prefix(),
+                    qualifiedName: 'xmlns:'.$namespaceUri->prefix(),
                     value: $namespaceUri->value,
                 );
             }
@@ -84,7 +81,7 @@ final class Serializer
         foreach ($properties as $property) {
             $value = $property->getValue($object);
 
-            if ($value === null) {
+            if (null === $value) {
                 continue;
             }
 
@@ -93,7 +90,7 @@ final class Serializer
 
             if (\is_array($value)) {
                 foreach ($value as $item) {
-                    if ($item === null) {
+                    if (null === $item) {
                         continue;
                     }
 
@@ -116,11 +113,11 @@ final class Serializer
     }
 
     /**
-     * Convert a property name to an element name by capitalizing the first letter
+     * Convert a property name to an element name by capitalizing the first letter.
      */
     private function elementNameFromProperty(string $propertyName): string
     {
-        if ($propertyName === '') {
+        if ('' === $propertyName) {
             return $propertyName;
         }
 
@@ -133,7 +130,7 @@ final class Serializer
     }
 
     /**
-     * Populate a DOMElement with attributes and text content from a ValueObjectInterface
+     * Populate a DOMElement with attributes and text content from a ValueObjectInterface.
      */
     private function populateValueObject(\DOMElement $element, ValueObjectInterface $object): void
     {
@@ -141,12 +138,12 @@ final class Serializer
         $element->appendChild($this->doc->createTextNode($value));
 
         foreach (\get_class_methods($object) as $method) {
-            if (!\str_starts_with($method, 'get') || $method === 'getValue') {
+            if (!\str_starts_with($method, 'get') || 'getValue' === $method) {
                 continue;
             }
 
             $attributeValue = $object->{$method}();
-            if ($attributeValue === null) {
+            if (null === $attributeValue) {
                 continue;
             }
 
@@ -158,7 +155,7 @@ final class Serializer
             }
 
             if (false === is_scalar($attributeValue)) {
-                throw new \RuntimeException(message: 'Cannot serialize non-scalar attribute value for ' . $attributeName);
+                throw new \RuntimeException(message: 'Cannot serialize non-scalar attribute value for '.$attributeName);
             }
 
             $element->setAttribute($attributeName, (string) $attributeValue);
@@ -175,8 +172,8 @@ final class Serializer
         $reflection = new \ReflectionClass($object);
         $attributes = $reflection->getAttributes(SerializedNamespace::class);
 
-        if ($attributes === []) {
-            throw new \RuntimeException('Missing SerializedNamespace attribute on ' . $reflection->getName());
+        if ([] === $attributes) {
+            throw new \RuntimeException('Missing SerializedNamespace attribute on '.$reflection->getName());
         }
 
         /** @var SerializedNamespace $attribute */
@@ -191,14 +188,14 @@ final class Serializer
     private function serializeValue(mixed $value, string $elementName, string $namespacePrefix): \DOMElement
     {
         if ($value instanceof ValueObjectInterface) {
-            $child = $this->doc->createElement($namespacePrefix . ':' . $elementName);
+            $child = $this->doc->createElement($namespacePrefix.':'.$elementName);
             $this->populateValueObject($child, $value);
 
             return $child;
         }
 
         if ($value instanceof \BackedEnum) {
-            $child = $this->doc->createElement($namespacePrefix . ':' . $elementName);
+            $child = $this->doc->createElement($namespacePrefix.':'.$elementName);
             $child->appendChild($this->doc->createTextNode((string) $value->value));
 
             return $child;
@@ -208,12 +205,12 @@ final class Serializer
             return $this->serializeObject($value, $elementName, $namespacePrefix);
         }
 
-        $prefixedName = $namespacePrefix . ':' . $elementName;
+        $prefixedName = $namespacePrefix.':'.$elementName;
         $element = $this->doc->createElement($prefixedName);
 
         $textValue = match (true) {
             \is_bool($value) => $value ? 'true' : 'false',
-            default => throw new \RuntimeException('Unsupported value type for serialization: ' . \gettype($value)),
+            default => throw new \RuntimeException('Unsupported value type for serialization: '.\gettype($value)),
         };
 
         $element->appendChild($this->doc->createTextNode($textValue));

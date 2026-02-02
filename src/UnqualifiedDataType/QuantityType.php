@@ -9,33 +9,33 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Unqualified quantity data type
+ * Unqualified quantity data type.
  */
 #[SerializedNamespace(NamespaceUri::UDT)]
 final readonly class QuantityType implements ValueObjectInterface
 {
     /**
-     * Quantity value
+     * Quantity value.
      */
     private string $value;
 
     /**
-     * Unit code
+     * Unit code.
      */
     private ?string $unitCode;
 
     /**
-     * Unit code list identifier
+     * Unit code list identifier.
      */
     private ?string $unitCodeListID;
 
     /**
-     * Unit code list agency identifier
+     * Unit code list agency identifier.
      */
     private ?string $unitCodeListAgencyID;
 
     /**
-     * Unit code list agency name
+     * Unit code list agency name.
      */
     private ?string $unitCodeListAgencyName;
 

@@ -21,155 +21,162 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\NumericTy
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
 /**
- * Document référencé
+ * Document référencé.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class ReferencedDocumentType
 {
     /**
-     * Identifiant assigné par l'émetteur
+     * Identifiant assigné par l'émetteur.
      */
     private ?IDType $issuerAssignedID;
 
     /**
-     * Code de statut
+     * Code de statut.
      */
     private ?DocumentStatusCodeType $statusCode;
 
     /**
-     * Indicateur de copie
+     * Indicateur de copie.
      */
     private ?IndicatorType $copyIndicator;
 
     /**
-     * Identifiant de ligne
+     * Identifiant de ligne.
      */
     private ?IDType $lineID;
 
     /**
-     * Code de type
+     * Code de type.
      */
     private ?DocumentCodeType $typeCode;
 
     /**
-     * Identifiant global
+     * Identifiant global.
      */
     private ?IDType $globalID;
 
     /**
-     * Identifiant de révision
+     * Identifiant de révision.
      */
     private ?IDType $revisionID;
 
     /**
-     * Nom
+     * Nom.
      */
     private ?TextType $name;
 
     /**
-     * Date et heure de réception
+     * Date et heure de réception.
      */
     private ?DateTimeType $receiptDateTime;
 
     /**
-     * Objets binaires joints
+     * Objets binaires joints.
+     *
      * @var array<BinaryObjectType>
      */
     private array $attachmentBinaryObject;
 
     /**
-     * Code de type de référence
+     * Code de type de référence.
      */
     private ?ReferenceCodeType $referenceTypeCode;
 
     /**
-     * Identifiant de langue
+     * Identifiant de langue.
      */
     private ?LanguageIDType $languageID;
 
     /**
-     * Descriptions
+     * Descriptions.
+     *
      * @var array<TextType>
      */
     private array $description;
 
     /**
-     * Date et heure d'émission formatée
+     * Date et heure d'émission formatée.
      */
     private ?FormattedDateTimeType $formattedIssueDateTime;
 
     /**
-     * Montants inclus
+     * Montants inclus.
+     *
      * @var array<AmountType>
      */
     private array $includedAmount;
 
     /**
-     * Identifiant de version
+     * Identifiant de version.
      */
     private ?IDType $versionID;
 
     /**
-     * Nombre total d'émissions
+     * Nombre total d'émissions.
      */
     private ?NumericType $totalIssueCountNumeric;
 
     /**
-     * Statuts
+     * Statuts.
+     *
      * @var array<TextType>
      */
     private array $status;
 
     /**
-     * Code de condition de processus
+     * Code de condition de processus.
      */
     private ?CodeType $processConditionCode;
 
     /**
-     * Conditions de processus
+     * Conditions de processus.
+     *
      * @var array<TextType>
      */
     private array $processCondition;
 
     /**
-     * Type
+     * Type.
      */
     private ?TextType $type;
 
     /**
-     * Partie émettrice
+     * Partie émettrice.
      */
     private ?TradePartyType $issuerTradeParty;
 
     /**
-     * Parties destinataires
+     * Parties destinataires.
+     *
      * @var array<TradePartyType>
      */
     private array $recipientTradeParty;
 
     /**
-     * Partie expéditrice
+     * Partie expéditrice.
      */
     private ?TradePartyType $senderTradeParty;
 
     /**
-     * Statuts de document spécifiés
+     * Statuts de document spécifiés.
+     *
      * @var array<DocumentStatusType>
      */
     private array $specifiedDocumentStatus;
 
     /**
-     * Période de validité
+     * Période de validité.
      */
     private ?SpecifiedPeriodType $validitySpecifiedPeriod;
 
     /**
-     * @param array<BinaryObjectType> $attachmentBinaryObject
-     * @param array<TextType> $description
-     * @param array<AmountType> $includedAmount
-     * @param array<TextType> $status
-     * @param array<TextType> $processCondition
-     * @param array<TradePartyType> $recipientTradeParty
+     * @param array<BinaryObjectType>   $attachmentBinaryObject
+     * @param array<TextType>           $description
+     * @param array<AmountType>         $includedAmount
+     * @param array<TextType>           $status
+     * @param array<TextType>           $processCondition
+     * @param array<TradePartyType>     $recipientTradeParty
      * @param array<DocumentStatusType> $specifiedDocumentStatus
      */
     public function __construct(

@@ -9,18 +9,18 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Qualified reference code type
+ * Qualified reference code type.
  */
 #[SerializedNamespace(NamespaceUri::QDT)]
 final readonly class ReferenceCodeType implements ValueObjectInterface
 {
     /**
-     * Code value
+     * Code value.
      */
     private string $value;
 
     /**
-     * List agency identifier (fixed to "6" for UNECE)
+     * List agency identifier (fixed to "6" for UNECE).
      */
     private ?string $listAgencyID;
 

@@ -6,7 +6,7 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist;
 
 /**
  * UNECE time point format code
- * Version D23A
+ * Version D23A.
  */
 enum TimePointFormatCode: string
 {

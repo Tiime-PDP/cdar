@@ -12,68 +12,68 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
 /**
- * Trade address
+ * Trade address.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class TradeAddressType
 {
     /**
-     * Postal code
+     * Postal code.
      */
     private ?CodeType $postcodeCode;
 
     /**
-     * Address line one
+     * Address line one.
      */
     private ?TextType $lineOne;
 
     /**
-     * Address line two
+     * Address line two.
      */
     private ?TextType $lineTwo;
 
     /**
-     * Address line three
+     * Address line three.
      */
     private ?TextType $lineThree;
 
     /**
-     * Address line four
+     * Address line four.
      */
     private ?TextType $lineFour;
 
     /**
-     * Address line five
+     * Address line five.
      */
     private ?TextType $lineFive;
 
     /**
-     * Street name
+     * Street name.
      */
     private ?TextType $streetName;
 
     /**
-     * City name
+     * City name.
      */
     private ?TextType $cityName;
 
     /**
-     * Country code
+     * Country code.
      */
     private ?CountryIDType $countryID;
 
     /**
-     * Country name
+     * Country name.
      */
     private ?TextType $countryName;
 
     /**
-     * Country sub-division code
+     * Country sub-division code.
      */
     private ?IDType $countrySubDivisionID;
 
     /**
-     * Country sub-division name
+     * Country sub-division name.
      */
     private ?TextType $countrySubDivisionName;
 

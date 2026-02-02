@@ -6,8 +6,8 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist;
 
 /**
  * UNECE status code
- * Version D23A
- * 
+ * Version D23A.
+ *
  * Complete list of all status codes from UN/EDIFACT specification 4405 D23A.
  */
 enum StatusCode: string

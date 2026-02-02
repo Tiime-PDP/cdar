@@ -11,45 +11,47 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
 /**
- * Trade contact
+ * Trade contact.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class TradeContactType
 {
     /**
-     * Contact identifier
+     * Contact identifier.
      */
     private ?IDType $ID;
 
     /**
-     * Person name
+     * Person name.
      */
     private ?TextType $personName;
 
     /**
-     * Department name
+     * Department name.
      */
     private ?TextType $departmentName;
 
     /**
-     * Contact type code
+     * Contact type code.
      */
     private ?ContactTypeCodeType $typeCode;
 
     /**
-     * Telephone universal communications
+     * Telephone universal communications.
+     *
      * @var array<UniversalCommunicationType>
      */
     private array $telephoneUniversalCommunication;
 
     /**
-     * Fax universal communications
+     * Fax universal communications.
+     *
      * @var array<UniversalCommunicationType>
      */
     private array $faxUniversalCommunication;
 
     /**
-     * Email URI universal communication
+     * Email URI universal communication.
      */
     private ?UniversalCommunicationType $emailURIUniversalCommunication;
 

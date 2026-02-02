@@ -10,24 +10,25 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\CodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
 /**
- * Note
+ * Note.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class NoteType
 {
     /**
-     * Content code
+     * Content code.
      */
     private ?CodeType $contentCode;
 
     /**
-     * Content text
+     * Content text.
+     *
      * @var array<TextType>
      */
     private array $content;
 
     /**
-     * Subject code
+     * Subject code.
      */
     private ?CodeType $subjectCode;
 

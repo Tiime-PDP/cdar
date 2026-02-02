@@ -6,8 +6,8 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist;
 
 /**
  * UNECE document name code
- * Version D23A
- * 
+ * Version D23A.
+ *
  * Complete list of all document name codes from UN/EDIFACT specification 1001 D23A.
  */
 enum DocumentNameCode: string

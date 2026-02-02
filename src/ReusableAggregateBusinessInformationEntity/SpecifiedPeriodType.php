@@ -9,18 +9,18 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\DateTimeType;
 
 /**
- * Specified period
+ * Specified period.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class SpecifiedPeriodType
 {
     /**
-     * Start date time
+     * Start date time.
      */
     private ?DateTimeType $startDateTime;
 
     /**
-     * End date time
+     * End date time.
      */
     private ?DateTimeType $endDateTime;
 

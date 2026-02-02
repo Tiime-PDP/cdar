@@ -9,58 +9,58 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Unqualified code data type
+ * Unqualified code data type.
  */
 #[SerializedNamespace(NamespaceUri::UDT)]
 final readonly class CodeType implements ValueObjectInterface
 {
     /**
-     * Code value
+     * Code value.
      */
     private string $value;
 
     /**
-     * List identifier
+     * List identifier.
      */
     private ?string $listID;
 
     /**
-     * List agency identifier
+     * List agency identifier.
      */
     private ?string $listAgencyID;
 
     /**
-     * List agency name
+     * List agency name.
      */
     private ?string $listAgencyName;
 
     /**
-     * List version identifier
+     * List version identifier.
      */
     private ?string $listVersionID;
 
     /**
-     * Code name
+     * Code name.
      */
     private ?string $name;
 
     /**
-     * List name
+     * List name.
      */
     private ?string $listName;
 
     /**
-     * Language identifier
+     * Language identifier.
      */
     private ?string $languageID;
 
     /**
-     * List URI
+     * List URI.
      */
     private ?string $listURI;
 
     /**
-     * List scheme URI
+     * List scheme URI.
      */
     private ?string $listSchemeURI;
 

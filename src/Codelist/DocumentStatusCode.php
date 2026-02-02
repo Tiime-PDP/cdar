@@ -6,7 +6,7 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist;
 
 /**
  * UNECE document status code
- * Version D23A
+ * Version D23A.
  */
 enum DocumentStatusCode: string
 {

@@ -9,23 +9,23 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IndicatorType;
 
 /**
- * Exchanged document context
+ * Exchanged document context.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class ExchangedDocumentContextType
 {
     /**
-     * Test indicator
+     * Test indicator.
      */
     private ?IndicatorType $testIndicator;
 
     /**
-     * Business process specified document context parameter
+     * Business process specified document context parameter.
      */
     private ?DocumentContextParameterType $businessProcessSpecifiedDocumentContextParameter;
 
     /**
-     * Guideline specified document context parameter
+     * Guideline specified document context parameter.
      */
     private DocumentContextParameterType $guidelineSpecifiedDocumentContextParameter;
 

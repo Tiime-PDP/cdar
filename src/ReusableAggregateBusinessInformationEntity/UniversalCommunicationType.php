@@ -9,18 +9,18 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
 
 /**
- * Universal communication
+ * Universal communication.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class UniversalCommunicationType
 {
     /**
-     * Communication URI
+     * Communication URI.
      */
     private ?IDType $URIID;
 
     /**
-     * Complete number
+     * Complete number.
      */
     private ?\TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType $completeNumber;
 

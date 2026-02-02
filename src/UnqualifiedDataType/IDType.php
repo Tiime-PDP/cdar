@@ -9,48 +9,48 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Unqualified identifier data type
+ * Unqualified identifier data type.
  */
 #[SerializedNamespace(NamespaceUri::UDT)]
 final readonly class IDType implements ValueObjectInterface
 {
     /**
-     * Identifier value
+     * Identifier value.
      */
     private string $value;
 
     /**
-     * Scheme identifier
+     * Scheme identifier.
      */
     private ?string $schemeID;
 
     /**
-     * Scheme name
+     * Scheme name.
      */
     private ?string $schemeName;
 
     /**
-     * Scheme agency identifier
+     * Scheme agency identifier.
      */
     private ?string $schemeAgencyID;
 
     /**
-     * Scheme agency name
+     * Scheme agency name.
      */
     private ?string $schemeAgencyName;
 
     /**
-     * Scheme version identifier
+     * Scheme version identifier.
      */
     private ?string $schemeVersionID;
 
     /**
-     * Scheme data URI
+     * Scheme data URI.
      */
     private ?string $schemeDataURI;
 
     /**
-     * Scheme URI
+     * Scheme URI.
      */
     private ?string $schemeURI;
 

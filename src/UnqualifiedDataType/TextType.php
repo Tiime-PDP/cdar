@@ -9,23 +9,23 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Unqualified text data type
+ * Unqualified text data type.
  */
 #[SerializedNamespace(NamespaceUri::UDT)]
 final readonly class TextType implements ValueObjectInterface
 {
     /**
-     * Text value
+     * Text value.
      */
     private string $value;
 
     /**
-     * Language identifier
+     * Language identifier.
      */
     private ?string $languageID;
 
     /**
-     * Language locale identifier
+     * Language locale identifier.
      */
     private ?string $languageLocaleID;
 

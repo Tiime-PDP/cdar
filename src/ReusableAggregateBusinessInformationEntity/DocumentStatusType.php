@@ -13,117 +13,125 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\NumericTy
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
 /**
- * Document status
+ * Document status.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class DocumentStatusType
 {
     /**
-     * Reference date time
+     * Reference date time.
      */
     private ?DateTimeType $referenceDateTime;
 
     /**
-     * Condition code
+     * Condition code.
      */
     private ?DocumentStatusCodeType $conditionCode;
 
     /**
-     * Reason code
+     * Reason code.
      */
     private ?CodeType $reasonCode;
 
     /**
-     * Reasons
+     * Reasons.
+     *
      * @var array<TextType>
      */
     private array $reason;
 
     /**
-     * Conditions
+     * Conditions.
+     *
      * @var array<TextType>
      */
     private array $condition;
 
     /**
-     * Process condition code
+     * Process condition code.
      */
     private ?CodeType $processConditionCode;
 
     /**
-     * Process conditions
+     * Process conditions.
+     *
      * @var array<TextType>
      */
     private array $processCondition;
 
     /**
-     * Reason information code
+     * Reason information code.
      */
     private ?CodeType $reasonInformationCode;
 
     /**
-     * Reason information
+     * Reason information.
+     *
      * @var array<TextType>
      */
     private array $reasonInformation;
 
     /**
-     * Reason classification code
+     * Reason classification code.
      */
     private ?CodeType $reasonClassificationCode;
 
     /**
-     * Reason classifications
+     * Reason classifications.
+     *
      * @var array<TextType>
      */
     private array $reasonClassification;
 
     /**
-     * Requested action code
+     * Requested action code.
      */
     private ?CodeType $requestedActionCode;
 
     /**
-     * Requested actions
+     * Requested actions.
+     *
      * @var array<TextType>
      */
     private array $requestedAction;
 
     /**
-     * Invalid information
+     * Invalid information.
      */
     private ?TextType $invalidInformation;
 
     /**
-     * Valid information
+     * Valid information.
      */
     private ?TextType $validInformation;
 
     /**
-     * Sequence number
+     * Sequence number.
      */
     private ?NumericType $sequenceNumeric;
 
     /**
-     * Included notes
+     * Included notes.
+     *
      * @var array<NoteType>
      */
     private array $includedNote;
 
     /**
-     * Specified document characteristics
+     * Specified document characteristics.
+     *
      * @var array<DocumentCharacteristicType>
      */
     private array $specifiedDocumentCharacteristic;
 
     /**
-     * @param array<TextType> $reason
-     * @param array<TextType> $condition
-     * @param array<TextType> $processCondition
-     * @param array<TextType> $reasonInformation
-     * @param array<TextType> $reasonClassification
-     * @param array<TextType> $requestedAction
-     * @param array<NoteType> $includedNote
+     * @param array<TextType>                   $reason
+     * @param array<TextType>                   $condition
+     * @param array<TextType>                   $processCondition
+     * @param array<TextType>                   $reasonInformation
+     * @param array<TextType>                   $reasonClassification
+     * @param array<TextType>                   $requestedAction
+     * @param array<NoteType>                   $includedNote
      * @param array<DocumentCharacteristicType> $specifiedDocumentCharacteristic
      */
     public function __construct(

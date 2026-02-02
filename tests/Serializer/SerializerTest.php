@@ -5,25 +5,25 @@ declare(strict_types=1);
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Tests\Serializer;
 
 use PHPUnit\Framework\TestCase;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist\DocumentNameCode;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist\TimePointFormatCode;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\CrossDomainAcknowledgementAndResponse;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\ExchangedDocumentContextType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\ExchangedDocumentType;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentCodeType;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\FormattedDateTimeType;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\PartyRoleCodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\AcknowledgementDocumentType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\DocumentContextParameterType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\TradePartyType;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\ExchangedDocumentContextType;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\ExchangedDocumentType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\ReferencedDocumentType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\DateTimeStringType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\DateTimeType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IndicatorType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\CodeType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\FormattedDateTimeType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentCodeType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\PartyRoleCodeType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist\DocumentNameCode;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\TradePartyType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\Serializer;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\CodeType;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\DateTimeStringType;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\DateTimeType;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IndicatorType;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
 final class SerializerTest extends TestCase
 {
@@ -35,7 +35,7 @@ final class SerializerTest extends TestCase
     }
 
     /**
-     * Test basic serialization of a simple message
+     * Test basic serialization of a simple message.
      */
     public function testSerializeBasicMessage(): void
     {
@@ -58,7 +58,7 @@ final class SerializerTest extends TestCase
     }
 
     /**
-     * Test serialization includes namespaces
+     * Test serialization includes namespaces.
      */
     public function testSerializeIncludesNamespaces(): void
     {
@@ -80,7 +80,7 @@ final class SerializerTest extends TestCase
     }
 
     /**
-     * Test serialization with nested objects
+     * Test serialization with nested objects.
      */
     public function testSerializeNestedObjects(): void
     {
@@ -116,7 +116,7 @@ final class SerializerTest extends TestCase
     }
 
     /**
-     * Test null values are omitted
+     * Test null values are omitted.
      */
     public function testSerializeOmitsNullValues(): void
     {
@@ -143,9 +143,8 @@ final class SerializerTest extends TestCase
         $this->assertStringNotContainsString('<rsm:ExchangedDocumentContext', $xml);
     }
 
-
     /**
-     * Test XML is well-formed
+     * Test XML is well-formed.
      */
     public function testSerializedXmlIsWellFormed(): void
     {
@@ -170,7 +169,7 @@ final class SerializerTest extends TestCase
     }
 
     /**
-     * Test serialization with multiple items in array
+     * Test serialization with multiple items in array.
      */
     public function testSerializeArrayOfObjects(): void
     {
@@ -208,7 +207,7 @@ final class SerializerTest extends TestCase
 
     /**
      * Test complete CDAR message serialization with real data
-     * Based on UC1_F202500003_01-CDV-200_Deposee.xml
+     * Based on UC1_F202500003_01-CDV-200_Deposee.xml.
      */
     public function testSerializeCompleteRealMessage(): void
     {
@@ -254,7 +253,7 @@ final class SerializerTest extends TestCase
 
     /**
      * Build a complete CDAR message with real data
-     * Based on UC1_F202500003_01-CDV-200_Deposee.xml
+     * Based on UC1_F202500003_01-CDV-200_Deposee.xml.
      */
     private function buildRealCdarMessage(): CrossDomainAcknowledgementAndResponse
     {

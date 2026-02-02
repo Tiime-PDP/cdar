@@ -9,18 +9,18 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Unqualified numeric data type
+ * Unqualified numeric data type.
  */
 #[SerializedNamespace(NamespaceUri::UDT)]
 final readonly class NumericType implements ValueObjectInterface
 {
     /**
-     * Numeric value
+     * Numeric value.
      */
     private string $value;
 
     /**
-     * Numeric format
+     * Numeric format.
      */
     private ?string $format;
 

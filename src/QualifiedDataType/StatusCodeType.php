@@ -9,18 +9,18 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
- * Qualified status code type
+ * Qualified status code type.
  */
 #[SerializedNamespace(NamespaceUri::QDT)]
 final readonly class StatusCodeType implements ValueObjectInterface
 {
     /**
-     * Status code value
+     * Status code value.
      */
     private string $value;
 
     /**
-     * List agency identifier (fixed to "6" for UNECE)
+     * List agency identifier (fixed to "6" for UNECE).
      */
     private ?string $listAgencyID;
 

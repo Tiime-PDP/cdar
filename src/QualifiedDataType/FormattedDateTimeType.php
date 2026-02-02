@@ -8,13 +8,13 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 
 /**
- * Qualified formatted date time type
+ * Qualified formatted date time type.
  */
 #[SerializedNamespace(NamespaceUri::QDT)]
 final readonly class FormattedDateTimeType
 {
     /**
-     * Date time string
+     * Date time string.
      */
     private DateTimeStringType $dateTimeString;
 

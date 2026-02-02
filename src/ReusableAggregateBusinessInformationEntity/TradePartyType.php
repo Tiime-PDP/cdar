@@ -11,52 +11,55 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
 /**
- * Trade party
+ * Trade party.
  */
 #[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class TradePartyType
 {
     /**
-     * Party identifiers
+     * Party identifiers.
+     *
      * @var array<IDType>
      */
     private array $ID;
 
     /**
-     * Party global identifiers
+     * Party global identifiers.
+     *
      * @var array<IDType>
      */
     private array $globalID;
 
     /**
-     * Party name
+     * Party name.
      */
     private ?TextType $name;
 
     /**
-     * Party role code
+     * Party role code.
      */
     private ?PartyRoleCodeType $roleCode;
 
     /**
-     * Defined contacts
+     * Defined contacts.
+     *
      * @var array<TradeContactType>
      */
     private array $definedTradeContact;
 
     /**
-     * Postal address
+     * Postal address.
      */
     private ?TradeAddressType $postalTradeAddress;
 
     /**
-     * URI universal communication
+     * URI universal communication.
      */
     private ?UniversalCommunicationType $URIUniversalCommunication;
 
     /**
-     * @param array<IDType> $ID
-     * @param array<IDType> $globalID
+     * @param array<IDType>           $ID
+     * @param array<IDType>           $globalID
      * @param array<TradeContactType> $definedTradeContact
      */
     public function __construct(
