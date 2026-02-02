@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Tests\Serializer;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist\DocumentNameCode;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist\TimePointFormatCode;
@@ -25,6 +26,7 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IndicatorType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
+#[CoversClass(Serializer::class)]
 final class SerializerTest extends TestCase
 {
     private Serializer $serializer;
