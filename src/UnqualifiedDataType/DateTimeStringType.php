@@ -22,10 +22,6 @@ final class DateTimeStringType implements ValueObjectInterface
      */
     private ?string $format;
 
-    /**
-     * @param string $value
-     * @param string|null $format
-     */
     public function __construct(string $value, ?string $format)
     {
         $this->value = $value;
