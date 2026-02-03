@@ -7,7 +7,6 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusine
 use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentStatusCodeType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\CodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\DateTimeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\NumericType;
@@ -16,7 +15,6 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 /**
  * Document status.
  */
-#[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class DocumentStatusType
 {
     /**

@@ -7,13 +7,11 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusine
 use JMS\Serializer\Annotation\XmlElement;
 use JMS\Serializer\Annotation\XmlRoot;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
 
 /**
  * Document context parameter.
  */
-#[SerializedNamespace(NamespaceUri::RAM)]
 #[XmlRoot(namespace: NamespaceUri::RAM->value)]
 final readonly class DocumentContextParameterType
 {

@@ -6,15 +6,11 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType;
 
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlValue;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
  * Unqualified percent data type.
  */
-#[SerializedNamespace(NamespaceUri::UDT)]
-final readonly class PercentType implements ValueObjectInterface
+final readonly class PercentType
 {
     /**
      * Percent value.

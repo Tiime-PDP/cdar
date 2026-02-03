@@ -11,7 +11,6 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\AcknowledgementCodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentCodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\StatusCodeType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\CodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\DateTimeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
@@ -21,7 +20,6 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 /**
  * Acknowledgement document.
  */
-#[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class AcknowledgementDocumentType
 {
     /**

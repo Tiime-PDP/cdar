@@ -13,13 +13,11 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\AcknowledgementDocumentType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\ExchangedDocumentContextType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\ExchangedDocumentType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 
 /**
  * Cross Domain Acknowledgement and Response message
  * UN/EDIFACT D23B standard.
  */
-#[SerializedNamespace(NamespaceUri::RSM)]
 #[XmlRoot(name: 'CrossDomainAcknowledgementAndResponse', namespace: NamespaceUri::RSM->value, prefix: 'rsm')]
 #[XmlNamespace(
     uri: NamespaceUri::RAM->value,

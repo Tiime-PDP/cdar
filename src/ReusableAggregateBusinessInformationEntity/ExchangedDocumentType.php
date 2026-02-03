@@ -10,7 +10,6 @@ use JMS\Serializer\Annotation\XmlList;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentCodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentStatusCodeType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\DateTimeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IndicatorType;
@@ -19,7 +18,6 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 /**
  * Exchanged document.
  */
-#[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class ExchangedDocumentType
 {
     /**

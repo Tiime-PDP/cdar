@@ -6,12 +6,8 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType;
 
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlValue;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
-#[SerializedNamespace(NamespaceUri::UDT)]
-final class IndicatorStringType implements ValueObjectInterface
+final class IndicatorStringType
 {
     #[XmlValue(cdata: false)]
     private string $value;

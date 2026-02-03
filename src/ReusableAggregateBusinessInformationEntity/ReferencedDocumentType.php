@@ -13,7 +13,6 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentSta
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\FormattedDateTimeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\LanguageIDType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\ReferenceCodeType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\AmountType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\BinaryObjectType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\CodeType;
@@ -26,7 +25,6 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 /**
  * Document référencé.
  */
-#[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class ReferencedDocumentType
 {
     /**

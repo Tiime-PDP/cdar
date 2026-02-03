@@ -6,14 +6,12 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusine
 
 use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\CodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
 /**
  * Note.
  */
-#[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class NoteType
 {
     /**

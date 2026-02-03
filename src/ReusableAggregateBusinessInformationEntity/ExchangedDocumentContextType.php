@@ -6,13 +6,11 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusine
 
 use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IndicatorType;
 
 /**
  * Exchanged document context.
  */
-#[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class ExchangedDocumentContextType
 {
     /**

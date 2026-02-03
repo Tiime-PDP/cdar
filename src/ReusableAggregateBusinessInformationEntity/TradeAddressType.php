@@ -7,7 +7,6 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusine
 use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\CountryIDType;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\CodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
@@ -15,7 +14,6 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 /**
  * Trade address.
  */
-#[SerializedNamespace(NamespaceUri::RAM)]
 final readonly class TradeAddressType
 {
     /**

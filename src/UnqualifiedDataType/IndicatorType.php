@@ -6,12 +6,10 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType;
 
 use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 
 /**
  * Unqualified indicator data type.
  */
-#[SerializedNamespace(NamespaceUri::UDT)]
 final readonly class IndicatorType
 {
     /**
