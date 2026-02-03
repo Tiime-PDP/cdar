@@ -19,6 +19,14 @@ Models are generated from official UN/CEFACT XSD schemas:
 
 - PHP 8.3 or higher
 
+## Installation
+
+You can install the library via Composer:
+
+```bashbash
+composer require tiimepdp/cdar
+```
+
 ## Usage
 
 ```php
