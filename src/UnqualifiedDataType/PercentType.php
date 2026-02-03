@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType;
 
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
@@ -17,11 +19,13 @@ final readonly class PercentType implements ValueObjectInterface
     /**
      * Percent value.
      */
+    #[XmlValue(cdata: false)]
     private string $value;
 
     /**
      * Percent format.
      */
+    #[XmlAttribute]
     private ?string $format;
 
     public function __construct(

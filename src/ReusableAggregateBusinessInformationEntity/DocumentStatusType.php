@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentStatusCodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
@@ -21,16 +22,19 @@ final readonly class DocumentStatusType
     /**
      * Reference date time.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?DateTimeType $referenceDateTime;
 
     /**
      * Condition code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?DocumentStatusCodeType $conditionCode;
 
     /**
      * Reason code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $reasonCode;
 
     /**
@@ -38,6 +42,7 @@ final readonly class DocumentStatusType
      *
      * @var array<TextType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private array $reason;
 
     /**
@@ -45,11 +50,13 @@ final readonly class DocumentStatusType
      *
      * @var array<TextType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private array $condition;
 
     /**
      * Process condition code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $processConditionCode;
 
     /**
@@ -57,11 +64,13 @@ final readonly class DocumentStatusType
      *
      * @var array<TextType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private array $processCondition;
 
     /**
      * Reason information code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $reasonInformationCode;
 
     /**
@@ -69,11 +78,13 @@ final readonly class DocumentStatusType
      *
      * @var array<TextType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private array $reasonInformation;
 
     /**
      * Reason classification code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $reasonClassificationCode;
 
     /**
@@ -81,11 +92,13 @@ final readonly class DocumentStatusType
      *
      * @var array<TextType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private array $reasonClassification;
 
     /**
      * Requested action code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $requestedActionCode;
 
     /**
@@ -93,21 +106,25 @@ final readonly class DocumentStatusType
      *
      * @var array<TextType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private array $requestedAction;
 
     /**
      * Invalid information.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TextType $invalidInformation;
 
     /**
      * Valid information.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TextType $validInformation;
 
     /**
      * Sequence number.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?NumericType $sequenceNumeric;
 
     /**
@@ -115,6 +132,7 @@ final readonly class DocumentStatusType
      *
      * @var array<NoteType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private array $includedNote;
 
     /**
@@ -122,6 +140,7 @@ final readonly class DocumentStatusType
      *
      * @var array<DocumentCharacteristicType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private array $specifiedDocumentCharacteristic;
 
     /**

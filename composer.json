@@ -15,7 +15,8 @@
     },
     "require": {
         "php": "^8.3",
-        "ext-dom": "*"
+        "ext-dom": "*",
+        "jms/serializer": "^3.32"
     },
     "require-dev": {
         "phpstan/phpstan": "^2.1",

@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlList;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\AcknowledgementCodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentCodeType;
@@ -24,85 +27,101 @@ final readonly class AcknowledgementDocumentType
     /**
      * Multiple references indicator.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IndicatorType $multipleReferencesIndicator;
 
     /**
      * Identifier.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $ID;
 
     /**
      * Type code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?DocumentCodeType $typeCode;
 
     /**
      * Name.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TextType $name;
 
     /**
      * Issue date time.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?DateTimeType $issueDateTime;
 
     /**
      * Status code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?StatusCodeType $statusCode;
 
     /**
      * Acknowledgement status code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?AcknowledgementCodeType $acknowledgementStatusCode;
 
     /**
      * Item identification identifier.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $itemIdentificationID;
 
     /**
      * Reason information.
      *
-     * @var array<TextType>
+     * @var array<TextType>|null
      */
-    private array $reasonInformation;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    private ?array $reasonInformation;
 
     /**
      * Channel code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $channelCode;
 
     /**
      * Process condition code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $processConditionCode;
 
     /**
      * Process conditions.
      *
-     * @var array<TextType>
+     * @var array<TextType>|null
      */
-    private array $processCondition;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    private ?array $processCondition;
 
     /**
      * Statuses.
      *
-     * @var array<TextType>
+     * @var array<TextType>|null
      */
-    private array $status;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    private ?array $status;
 
     /**
      * Reference documents.
      *
-     * @var array<ReferencedDocumentType>
+     * @var array<ReferencedDocumentType>|null
      */
-    private array $referenceReferencedDocument;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\ReferencedDocumentType>')]
+    #[XmlList(entry: 'ReferenceReferencedDocument', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $referenceReferencedDocument;
 
     /**
-     * @param array<TextType>               $reasonInformation
-     * @param array<TextType>               $processCondition
-     * @param array<TextType>               $status
+     * @param array<TextType>|null          $reasonInformation
+     * @param array<TextType>|null          $processCondition
+     * @param array<TextType>|null          $status
      * @param array<ReferencedDocumentType> $referenceReferencedDocument
      */
     public function __construct(
@@ -114,12 +133,12 @@ final readonly class AcknowledgementDocumentType
         ?StatusCodeType $statusCode = null,
         ?AcknowledgementCodeType $acknowledgementStatusCode = null,
         ?IDType $itemIdentificationID = null,
-        array $reasonInformation = [],
+        ?array $reasonInformation = null,
         ?CodeType $channelCode = null,
         ?CodeType $processConditionCode = null,
-        array $processCondition = [],
-        array $status = [],
-        array $referenceReferencedDocument = [],
+        ?array $processCondition = null,
+        ?array $status = null,
+        ?array $referenceReferencedDocument = null,
     ) {
         $this->multipleReferencesIndicator = $multipleReferencesIndicator;
         $this->ID = $ID;
@@ -178,9 +197,9 @@ final readonly class AcknowledgementDocumentType
     }
 
     /**
-     * @return array<TextType>
+     * @return array<TextType>|null
      */
-    public function getReasonInformation(): array
+    public function getReasonInformation(): ?array
     {
         return $this->reasonInformation;
     }
@@ -196,25 +215,25 @@ final readonly class AcknowledgementDocumentType
     }
 
     /**
-     * @return array<TextType>
+     * @return array<TextType>|null
      */
-    public function getProcessCondition(): array
+    public function getProcessCondition(): ?array
     {
         return $this->processCondition;
     }
 
     /**
-     * @return array<TextType>
+     * @return array<TextType>|null
      */
-    public function getStatus(): array
+    public function getStatus(): ?array
     {
         return $this->status;
     }
 
     /**
-     * @return array<ReferencedDocumentType>
+     * @return array<ReferencedDocumentType>|null
      */
-    public function getReferenceReferencedDocument(): array
+    public function getReferenceReferencedDocument(): ?array
     {
         return $this->referenceReferencedDocument;
     }

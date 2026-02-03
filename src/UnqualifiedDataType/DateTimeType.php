@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 
@@ -16,16 +18,19 @@ final readonly class DateTimeType
     /**
      * Date time string.
      */
+    #[XmlElement(namespace: NamespaceUri::UDT->value)]
     private ?DateTimeStringType $dateTimeString;
 
     /**
      * Structured date time.
      */
-    private ?\DateTimeInterface $dateTime;
+    #[XmlElement(cdata: false, namespace: NamespaceUri::UDT->value)]
+    #[Type(name: 'DateTimeImmutable')]
+    private ?\DateTimeImmutable $dateTime;
 
     public function __construct(
         ?DateTimeStringType $dateTimeString = null,
-        ?\DateTimeInterface $dateTime = null,
+        ?\DateTimeImmutable $dateTime = null,
     ) {
         $this->dateTimeString = $dateTimeString;
         $this->dateTime = $dateTime;
@@ -36,7 +41,7 @@ final readonly class DateTimeType
         return $this->dateTimeString;
     }
 
-    public function getDateTime(): ?\DateTimeInterface
+    public function getDateTime(): ?\DateTimeImmutable
     {
         return $this->dateTime;
     }

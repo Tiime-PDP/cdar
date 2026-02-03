@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlList;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentCodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentStatusCodeType;
@@ -29,155 +32,195 @@ final readonly class ReferencedDocumentType
     /**
      * Identifiant assigné par l'émetteur.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $issuerAssignedID;
 
     /**
      * Code de statut.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?DocumentStatusCodeType $statusCode;
 
     /**
      * Indicateur de copie.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IndicatorType $copyIndicator;
 
     /**
      * Identifiant de ligne.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $lineID;
 
     /**
      * Code de type.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?DocumentCodeType $typeCode;
 
     /**
      * Identifiant global.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $globalID;
 
     /**
      * Identifiant de révision.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $revisionID;
 
     /**
      * Nom.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TextType $name;
 
     /**
      * Date et heure de réception.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?DateTimeType $receiptDateTime;
 
     /**
      * Objets binaires joints.
      *
-     * @var array<BinaryObjectType>
+     * @var array<BinaryObjectType>|null
      */
-    private array $attachmentBinaryObject;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\BinaryObjectType>')]
+    #[XmlList(entry: 'AttachmentBinaryObject', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $attachmentBinaryObject;
 
     /**
      * Code de type de référence.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?ReferenceCodeType $referenceTypeCode;
 
     /**
      * Identifiant de langue.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?LanguageIDType $languageID;
 
     /**
      * Descriptions.
      *
-     * @var array<TextType>
+     * @var array<TextType>|null
      */
-    private array $description;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'Description', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $description;
 
     /**
      * Date et heure d'émission formatée.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?FormattedDateTimeType $formattedIssueDateTime;
 
     /**
      * Montants inclus.
      *
-     * @var array<AmountType>
+     * @var array<AmountType>|null
      */
-    private array $includedAmount;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\AmountType>')]
+    #[XmlList(entry: 'IncludedAmount', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $includedAmount;
 
     /**
      * Identifiant de version.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $versionID;
 
     /**
      * Nombre total d'émissions.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?NumericType $totalIssueCountNumeric;
 
     /**
      * Statuts.
      *
-     * @var array<TextType>
+     * @var array<TextType>|null
      */
-    private array $status;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'Status', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $status;
 
     /**
      * Code de condition de processus.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $processConditionCode;
 
     /**
      * Conditions de processus.
      *
-     * @var array<TextType>
+     * @var array<TextType>|null
      */
-    private array $processCondition;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'ProcessCondition', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $processCondition;
 
     /**
      * Type.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TextType $type;
 
     /**
      * Partie émettrice.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TradePartyType $issuerTradeParty;
 
     /**
      * Parties destinataires.
      *
-     * @var array<TradePartyType>
+     * @var array<TradePartyType>|null
      */
-    private array $recipientTradeParty;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\TradePartyType>')]
+    #[XmlList(entry: 'RecipientTradeParty', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $recipientTradeParty;
 
     /**
      * Partie expéditrice.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TradePartyType $senderTradeParty;
 
     /**
      * Statuts de document spécifiés.
      *
-     * @var array<DocumentStatusType>
+     * @var array<DocumentStatusType>|null
      */
-    private array $specifiedDocumentStatus;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\DocumentStatusType>')]
+    #[XmlList(entry: 'SpecifiedDocumentStatus', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $specifiedDocumentStatus;
 
     /**
      * Période de validité.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?SpecifiedPeriodType $validitySpecifiedPeriod;
 
     /**
-     * @param array<BinaryObjectType>   $attachmentBinaryObject
-     * @param array<TextType>           $description
-     * @param array<AmountType>         $includedAmount
-     * @param array<TextType>           $status
-     * @param array<TextType>           $processCondition
-     * @param array<TradePartyType>     $recipientTradeParty
-     * @param array<DocumentStatusType> $specifiedDocumentStatus
+     * @param array<BinaryObjectType>|null   $attachmentBinaryObject
+     * @param array<TextType>|null           $description
+     * @param array<AmountType>|null         $includedAmount
+     * @param array<TextType>|null           $status
+     * @param array<TextType>|null           $processCondition
+     * @param array<TradePartyType>|null     $recipientTradeParty
+     * @param array<DocumentStatusType>|null $specifiedDocumentStatus
      */
     public function __construct(
         ?IDType $issuerAssignedID = null,
@@ -189,22 +232,22 @@ final readonly class ReferencedDocumentType
         ?IDType $revisionID = null,
         ?TextType $name = null,
         ?DateTimeType $receiptDateTime = null,
-        array $attachmentBinaryObject = [],
+        ?array $attachmentBinaryObject = null,
         ?ReferenceCodeType $referenceTypeCode = null,
         ?LanguageIDType $languageID = null,
-        array $description = [],
+        ?array $description = null,
         ?FormattedDateTimeType $formattedIssueDateTime = null,
-        array $includedAmount = [],
+        ?array $includedAmount = null,
         ?IDType $versionID = null,
         ?NumericType $totalIssueCountNumeric = null,
-        array $status = [],
+        ?array $status = null,
         ?CodeType $processConditionCode = null,
-        array $processCondition = [],
+        ?array $processCondition = null,
         ?TextType $type = null,
         ?TradePartyType $issuerTradeParty = null,
-        array $recipientTradeParty = [],
+        ?array $recipientTradeParty = null,
         ?TradePartyType $senderTradeParty = null,
-        array $specifiedDocumentStatus = [],
+        ?array $specifiedDocumentStatus = null,
         ?SpecifiedPeriodType $validitySpecifiedPeriod = null,
     ) {
         $this->issuerAssignedID = $issuerAssignedID;
@@ -281,9 +324,9 @@ final readonly class ReferencedDocumentType
     }
 
     /**
-     * @return array<BinaryObjectType>
+     * @return array<BinaryObjectType>|null
      */
-    public function getAttachmentBinaryObject(): array
+    public function getAttachmentBinaryObject(): ?array
     {
         return $this->attachmentBinaryObject;
     }
@@ -299,9 +342,9 @@ final readonly class ReferencedDocumentType
     }
 
     /**
-     * @return array<TextType>
+     * @return array<TextType>|null
      */
-    public function getDescription(): array
+    public function getDescription(): ?array
     {
         return $this->description;
     }
@@ -312,9 +355,9 @@ final readonly class ReferencedDocumentType
     }
 
     /**
-     * @return array<AmountType>
+     * @return array<AmountType>|null
      */
-    public function getIncludedAmount(): array
+    public function getIncludedAmount(): ?array
     {
         return $this->includedAmount;
     }
@@ -330,9 +373,9 @@ final readonly class ReferencedDocumentType
     }
 
     /**
-     * @return array<TextType>
+     * @return array<TextType>|null
      */
-    public function getStatus(): array
+    public function getStatus(): ?array
     {
         return $this->status;
     }
@@ -343,9 +386,9 @@ final readonly class ReferencedDocumentType
     }
 
     /**
-     * @return array<TextType>
+     * @return array<TextType>|null
      */
-    public function getProcessCondition(): array
+    public function getProcessCondition(): ?array
     {
         return $this->processCondition;
     }
@@ -361,9 +404,9 @@ final readonly class ReferencedDocumentType
     }
 
     /**
-     * @return array<TradePartyType>
+     * @return array<TradePartyType>|null
      */
-    public function getRecipientTradeParty(): array
+    public function getRecipientTradeParty(): ?array
     {
         return $this->recipientTradeParty;
     }
@@ -374,9 +417,9 @@ final readonly class ReferencedDocumentType
     }
 
     /**
-     * @return array<DocumentStatusType>
+     * @return array<DocumentStatusType>|null
      */
-    public function getSpecifiedDocumentStatus(): array
+    public function getSpecifiedDocumentStatus(): ?array
     {
         return $this->specifiedDocumentStatus;
     }

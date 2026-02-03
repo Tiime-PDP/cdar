@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType;
 
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
@@ -17,16 +19,19 @@ final readonly class TextType implements ValueObjectInterface
     /**
      * Text value.
      */
+    #[XmlValue(cdata: false)]
     private string $value;
 
     /**
      * Language identifier.
      */
+    #[XmlAttribute]
     private ?string $languageID;
 
     /**
      * Language locale identifier.
      */
+    #[XmlAttribute]
     private ?string $languageLocaleID;
 
     public function __construct(

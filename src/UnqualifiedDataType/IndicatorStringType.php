@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType;
 
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
@@ -11,11 +13,13 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 #[SerializedNamespace(NamespaceUri::UDT)]
 final class IndicatorStringType implements ValueObjectInterface
 {
+    #[XmlValue(cdata: false)]
     private string $value;
 
     /**
      * Indicator format.
      */
+    #[XmlAttribute]
     private ?string $format;
 
     public function __construct(string $value, ?string $format = null)

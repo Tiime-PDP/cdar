@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlList;
+use JMS\Serializer\Annotation\XmlNamespace;
+use JMS\Serializer\Annotation\XmlRoot;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\AcknowledgementDocumentType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\ExchangedDocumentContextType;
@@ -15,16 +20,35 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespac
  * UN/EDIFACT D23B standard.
  */
 #[SerializedNamespace(NamespaceUri::RSM)]
+#[XmlRoot(name: 'CrossDomainAcknowledgementAndResponse', namespace: NamespaceUri::RSM->value, prefix: 'rsm')]
+#[XmlNamespace(
+    uri: NamespaceUri::RAM->value,
+    prefix: 'ram'
+)]
+#[XmlNamespace(
+    uri: NamespaceUri::UDT->value,
+    prefix: 'udt'
+)]
+#[XmlNamespace(
+    uri: NamespaceUri::QDT->value,
+    prefix: 'qdt'
+)]
+#[XmlNamespace(
+    uri: NamespaceUri::XSI->value,
+    prefix: 'xsi'
+)]
 final readonly class CrossDomainAcknowledgementAndResponse
 {
     /**
      * Exchanged document context.
      */
+    #[XmlElement(namespace: NamespaceUri::RSM->value)]
     private ?ExchangedDocumentContextType $exchangedDocumentContext;
 
     /**
      * Exchanged document.
      */
+    #[XmlElement(namespace: NamespaceUri::RSM->value)]
     private ExchangedDocumentType $exchangedDocument;
 
     /**
@@ -32,6 +56,9 @@ final readonly class CrossDomainAcknowledgementAndResponse
      *
      * @var array<AcknowledgementDocumentType>
      */
+    #[XmlElement(namespace: NamespaceUri::RSM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\AcknowledgementDocumentType>')]
+    #[XmlList(entry: 'AcknowledgementDocument', inline: true, namespace: NamespaceUri::RSM->value)]
     private array $acknowledgementDocument;
 
     /**

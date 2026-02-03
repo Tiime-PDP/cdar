@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType;
 
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
@@ -17,36 +19,43 @@ final readonly class BinaryObjectType implements ValueObjectInterface
     /**
      * Binary object value encoded in base64.
      */
+    #[XmlValue(cdata: false)]
     private string $value;
 
     /**
      * Object format.
      */
+    #[XmlAttribute]
     private ?string $format;
 
     /**
      * MIME code.
      */
+    #[XmlAttribute]
     private ?string $mimeCode;
 
     /**
      * Encoding code.
      */
+    #[XmlAttribute]
     private ?string $encodingCode;
 
     /**
      * Character set code.
      */
+    #[XmlAttribute]
     private ?string $characterSetCode;
 
     /**
      * Object URI.
      */
+    #[XmlAttribute]
     private ?string $uri;
 
     /**
      * File name.
      */
+    #[XmlAttribute]
     private ?string $filename;
 
     public function __construct(

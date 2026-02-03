@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType;
 
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
@@ -17,33 +19,38 @@ final readonly class DocumentStatusCodeType implements ValueObjectInterface
     /**
      * Code value.
      */
+    #[XmlValue(cdata: false)]
     private string $value;
 
     /**
      * List identifier (fixed to "1373").
      */
+    #[XmlAttribute]
     private ?string $listID;
 
     /**
      * List agency identifier (fixed to "6" for UNECE).
      */
+    #[XmlAttribute]
     private ?string $listAgencyID;
 
     /**
      * List version identifier (fixed to "D23A").
      */
+    #[XmlAttribute]
     private ?string $listVersionID;
 
     /**
      * Code name.
      */
+    #[XmlAttribute]
     private ?string $name;
 
     public function __construct(
         string $value,
-        ?string $listID = '1373',
-        ?string $listAgencyID = '6',
-        ?string $listVersionID = 'D23A',
+        ?string $listID = null,
+        ?string $listAgencyID = null,
+        ?string $listVersionID = null,
         ?string $name = null,
     ) {
         $this->value = $value;

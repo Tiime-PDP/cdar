@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType;
 
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
@@ -17,11 +19,13 @@ final readonly class StatusCodeType implements ValueObjectInterface
     /**
      * Status code value.
      */
+    #[XmlValue(cdata: false)]
     private string $value;
 
     /**
      * List agency identifier (fixed to "6" for UNECE).
      */
+    #[XmlAttribute]
     private ?string $listAgencyID;
 
     public function __construct(

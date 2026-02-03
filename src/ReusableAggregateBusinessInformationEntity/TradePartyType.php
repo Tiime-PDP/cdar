@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlList;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\PartyRoleCodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
@@ -19,55 +22,68 @@ final readonly class TradePartyType
     /**
      * Party identifiers.
      *
-     * @var array<IDType>
+     * @var array<IDType>|null
      */
-    private array $ID;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType>')]
+    #[XmlList(entry: 'ID', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $ID;
 
     /**
      * Party global identifiers.
      *
-     * @var array<IDType>
+     * @var array<IDType>|null
      */
-    private array $globalID;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType>')]
+    #[XmlList(entry: 'GlobalID', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $globalID;
 
     /**
      * Party name.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TextType $name;
 
     /**
      * Party role code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?PartyRoleCodeType $roleCode;
 
     /**
      * Defined contacts.
      *
-     * @var array<TradeContactType>
+     * @var array<TradeContactType>|null
      */
-    private array $definedTradeContact;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\TradeContactType>')]
+    #[XmlList(entry: 'DefinedTradeContact', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $definedTradeContact;
 
     /**
      * Postal address.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TradeAddressType $postalTradeAddress;
 
     /**
      * URI universal communication.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?UniversalCommunicationType $URIUniversalCommunication;
 
     /**
-     * @param array<IDType>           $ID
-     * @param array<IDType>           $globalID
-     * @param array<TradeContactType> $definedTradeContact
+     * @param array<IDType>|null           $ID
+     * @param array<IDType>|null           $globalID
+     * @param array<TradeContactType>|null $definedTradeContact
      */
     public function __construct(
-        array $ID = [],
-        array $globalID = [],
+        ?array $ID = null,
+        ?array $globalID = null,
         ?TextType $name = null,
         ?PartyRoleCodeType $roleCode = null,
-        array $definedTradeContact = [],
+        ?array $definedTradeContact = null,
         ?TradeAddressType $postalTradeAddress = null,
         ?UniversalCommunicationType $URIUniversalCommunication = null,
     ) {
@@ -81,17 +97,17 @@ final readonly class TradePartyType
     }
 
     /**
-     * @return array<IDType>
+     * @return array<IDType>|null
      */
-    public function getID(): array
+    public function getID(): ?array
     {
         return $this->ID;
     }
 
     /**
-     * @return array<IDType>
+     * @return array<IDType>|null
      */
-    public function getGlobalID(): array
+    public function getGlobalID(): ?array
     {
         return $this->globalID;
     }
@@ -107,9 +123,9 @@ final readonly class TradePartyType
     }
 
     /**
-     * @return array<TradeContactType>
+     * @return array<TradeContactType>|null
      */
-    public function getDefinedTradeContact(): array
+    public function getDefinedTradeContact(): ?array
     {
         return $this->definedTradeContact;
     }
