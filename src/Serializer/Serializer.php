@@ -8,7 +8,7 @@ use JMS\Serializer\Naming\CamelCaseNamingStrategy;
 use JMS\Serializer\SerializerBuilder;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\CrossDomainAcknowledgementAndResponse;
 
-final class Serializer
+final class Serializer implements SerializerInterface
 {
     private \JMS\Serializer\Serializer $serializer;
 
