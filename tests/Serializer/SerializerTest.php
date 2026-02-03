@@ -86,6 +86,51 @@ final class SerializerTest extends TestCase
         $this->assertSame('Déposée', $referenceReferencedDocument->getProcessCondition()[0]->getValue());
     }
 
+    public function testSchemaIsValid(): void
+    {
+        // Arrange
+        $serializer = new Serializer();
+        $cdar = $this->buildCdarMessage();
+        $xml = $serializer->serialize($cdar);
+
+        $dom = new \DOMDocument();
+        $dom->loadXML($xml);
+        // Désactive les erreurs libxml pour les capturer
+        libxml_use_internal_errors(true);
+
+        // Act
+        $isValid = $dom->schemaValidate(__DIR__.'/../../xsd/uncefact/CrossDomainAcknowledgementAndResponse_100pD23B.xsd');
+
+        // Assert
+        $errors = libxml_get_errors();
+        libxml_use_internal_errors(false);
+        $this->assertTrue($isValid, $this->formatValidationErrors($errors));
+    }
+
+    /**
+     * Format XSD validation errors for display.
+     *
+     * @param \LibXMLError[] $errors
+     */
+    private function formatValidationErrors(array $errors): string
+    {
+        if (empty($errors)) {
+            return '';
+        }
+
+        $messages = [];
+        foreach ($errors as $error) {
+            $messages[] = \sprintf(
+                'Line %d, Column %d: %s',
+                $error->line,
+                $error->column,
+                \trim($error->message)
+            );
+        }
+
+        return "XSD validation errors:\n".\implode("\n", $messages);
+    }
+
     private function buildCdarMessage(): CrossDomainAcknowledgementAndResponse
     {
         // ExchangedDocumentContext
