@@ -7,12 +7,8 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType;
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlValue;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist\TimePointFormatCode;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
-#[SerializedNamespace(NamespaceUri::QDT)]
-final class DateTimeStringType implements ValueObjectInterface
+final class DateTimeStringType
 {
     /**
      * Date time string value.

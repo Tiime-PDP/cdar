@@ -29,235 +29,64 @@ use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 #[CoversClass(Serializer::class)]
 final class SerializerTest extends TestCase
 {
-    private Serializer $serializer;
-
-    protected function setUp(): void
+    public function testSerialize(): void
     {
-        $this->serializer = new Serializer();
+        // Arrange
+        $serializer = new Serializer();
+        $cdar = $this->buildCdarMessage();
+
+        // Act
+        $xml = $serializer->serialize($cdar);
+
+        // Assert
+        $this->assertXmlStringEqualsXmlFile(__DIR__.'/../data/expected_serialize.xml', $xml);
     }
 
-    /**
-     * Test basic serialization of a simple message.
-     */
-    public function testSerializeBasicMessage(): void
+    public function testDeserialize(): void
     {
-        $document = new ExchangedDocumentType(
-            recipientTradeParty: [],
-            ID: new IDType('DOC-001'),
-            name: new TextType('Test Document'),
-        );
+        // Arrange
+        $serializer = new Serializer();
+        /** @var string $xml */
+        $xml = file_get_contents(__DIR__.'/../data/UC1_F202500003_01-CDV-200_Deposee.xml');
 
-        $cdar = new CrossDomainAcknowledgementAndResponse(
-            exchangedDocument: $document,
-            acknowledgementDocument: [],
-        );
+        // Act
+        $cdar = $serializer->deserialize($xml);
 
-        $xml = $this->serializer->serialize($cdar);
+        // Assert
+        $exchangedDocumentContext = $cdar->getExchangedDocumentContext();
+        $this->assertNotNull($exchangedDocumentContext);
+        $this->assertSame('REGULATED', $exchangedDocumentContext->getBusinessProcessSpecifiedDocumentContextParameter()?->getID()->getValue());
+        $this->assertSame('urn.cpro.gouv.fr:1p0:CDV:invoice', $exchangedDocumentContext->getGuidelineSpecifiedDocumentContextParameter()->getID()->getValue());
 
-        $this->assertStringContainsString('<?xml version="1.0" encoding="UTF-8"?>', $xml);
-        $this->assertStringContainsString('<rsm:CrossDomainAcknowledgementAndResponse', $xml);
-        $this->assertStringContainsString('</rsm:CrossDomainAcknowledgementAndResponse>', $xml);
+        $this->assertSame('UC1_F202500003_01-CDV-200_Déposée', $cdar->getExchangedDocument()->getName()?->getValue());
+        $this->assertCount(2, $cdar->getExchangedDocument()->getRecipientTradeParty());
+        $recipientTradeParty1 = $cdar->getExchangedDocument()->getRecipientTradeParty()[0];
+        $this->assertNotNull($recipientTradeParty1->getGlobalID());
+        $this->assertCount(1, $recipientTradeParty1->getGlobalID());
+        $globalId = $recipientTradeParty1->getGlobalID()[0];
+        $this->assertSame('100000009', $globalId->getValue());
+        $this->assertSame('VENDEUR', $recipientTradeParty1->getName()?->getValue());
+
+        $recipientTradeParty2 = $cdar->getExchangedDocument()->getRecipientTradeParty()[1];
+        $this->assertNotNull($recipientTradeParty2->getGlobalID());
+        $this->assertCount(1, $recipientTradeParty2->getGlobalID());
+        $globalId2 = $recipientTradeParty2->getGlobalID()[0];
+        $this->assertSame('9998', $globalId2->getValue());
+        $this->assertSame('PPF', $recipientTradeParty2->getName()?->getValue());
+
+        $this->assertCount(1, $cdar->getAcknowledgementDocument());
+        $acknowledgementDocument = $cdar->getAcknowledgementDocument()[0];
+        $this->assertNotNull($acknowledgementDocument->getReferenceReferencedDocument());
+        $this->assertCount(1, $acknowledgementDocument->getReferenceReferencedDocument());
+        $referenceReferencedDocument = $acknowledgementDocument->getReferenceReferencedDocument()[0];
+        $this->assertSame('F202500003', $referenceReferencedDocument->getIssuerAssignedID()?->getValue());
+        $this->assertSame('200', $referenceReferencedDocument->getProcessConditionCode()?->getValue());
+        $this->assertNotNull($referenceReferencedDocument->getProcessCondition());
+        $this->assertCount(1, $referenceReferencedDocument->getProcessCondition());
+        $this->assertSame('Déposée', $referenceReferencedDocument->getProcessCondition()[0]->getValue());
     }
 
-    /**
-     * Test serialization includes namespaces.
-     */
-    public function testSerializeIncludesNamespaces(): void
-    {
-        $document = new ExchangedDocumentType(
-            recipientTradeParty: [],
-        );
-
-        $cdar = new CrossDomainAcknowledgementAndResponse(
-            exchangedDocument: $document,
-            acknowledgementDocument: [],
-        );
-
-        $xml = $this->serializer->serialize($cdar);
-
-        $this->assertStringContainsString('xmlns:rsm=', $xml);
-        $this->assertStringContainsString('xmlns:ram=', $xml);
-        $this->assertStringContainsString('xmlns:udt=', $xml);
-        $this->assertStringContainsString('xmlns:qdt=', $xml);
-    }
-
-    /**
-     * Test serialization with nested objects.
-     */
-    public function testSerializeNestedObjects(): void
-    {
-        $sender = new TradePartyType(
-            ID: [],
-            globalID: [],
-            name: new TextType('Sender Company'),
-        );
-
-        $recipient = new TradePartyType(
-            ID: [],
-            globalID: [],
-            name: new TextType('Recipient Company'),
-        );
-
-        $document = new ExchangedDocumentType(
-            recipientTradeParty: [$recipient],
-            ID: new IDType('DOC-001'),
-            senderTradeParty: $sender,
-        );
-
-        $cdar = new CrossDomainAcknowledgementAndResponse(
-            exchangedDocument: $document,
-            acknowledgementDocument: [],
-        );
-
-        $xml = $this->serializer->serialize($cdar);
-
-        $this->assertStringContainsString('<ram:SenderTradeParty>', $xml);
-        $this->assertStringContainsString('<ram:RecipientTradeParty>', $xml);
-        $this->assertStringContainsString('Sender Company', $xml);
-        $this->assertStringContainsString('Recipient Company', $xml);
-    }
-
-    /**
-     * Test null values are omitted.
-     */
-    public function testSerializeOmitsNullValues(): void
-    {
-        $document = new ExchangedDocumentType(
-            recipientTradeParty: [],
-            ID: new IDType('DOC-001'),
-            // name is null
-            // senderTradeParty is null
-        );
-
-        $cdar = new CrossDomainAcknowledgementAndResponse(
-            exchangedDocument: $document,
-            acknowledgementDocument: [],
-            // exchangedDocumentContext is null
-        );
-
-        $xml = $this->serializer->serialize($cdar);
-
-        // Should contain the ID value
-        $this->assertStringContainsString('DOC-001', $xml);
-        // Should not contain elements for null properties
-        $this->assertStringNotContainsString('<rsm:Name', $xml);
-        $this->assertStringNotContainsString('<ram:SenderTradeParty', $xml);
-        $this->assertStringNotContainsString('<rsm:ExchangedDocumentContext', $xml);
-    }
-
-    /**
-     * Test XML is well-formed.
-     */
-    public function testSerializedXmlIsWellFormed(): void
-    {
-        $document = new ExchangedDocumentType(
-            recipientTradeParty: [],
-            ID: new IDType('DOC-001'),
-            name: new TextType('Test'),
-        );
-
-        $cdar = new CrossDomainAcknowledgementAndResponse(
-            exchangedDocument: $document,
-            acknowledgementDocument: [],
-        );
-
-        $xml = $this->serializer->serialize($cdar);
-
-        // Try to load the XML to verify it's well-formed
-        $doc = new \DOMDocument();
-        $result = @$doc->loadXML($xml);
-
-        $this->assertTrue($result, 'Generated XML is not well-formed');
-    }
-
-    /**
-     * Test serialization with multiple items in array.
-     */
-    public function testSerializeArrayOfObjects(): void
-    {
-        $recipient1 = new TradePartyType(
-            ID: [],
-            globalID: [],
-            name: new TextType('Recipient 1'),
-        );
-
-        $recipient2 = new TradePartyType(
-            ID: [],
-            globalID: [],
-            name: new TextType('Recipient 2'),
-        );
-
-        $document = new ExchangedDocumentType(
-            recipientTradeParty: [$recipient1, $recipient2],
-        );
-
-        $cdar = new CrossDomainAcknowledgementAndResponse(
-            exchangedDocument: $document,
-            acknowledgementDocument: [],
-        );
-
-        $xml = $this->serializer->serialize($cdar);
-
-        // Count occurrences of RecipientTradeParty (opening tags only)
-        $count = \substr_count($xml, '<ram:RecipientTradeParty');
-        $this->assertEquals(2, $count, 'Should have 2 RecipientTradeParty elements');
-
-        // Verify both recipients are present
-        $this->assertStringContainsString('Recipient 1', $xml);
-        $this->assertStringContainsString('Recipient 2', $xml);
-    }
-
-    /**
-     * Test complete CDAR message serialization with real data
-     * Based on UC1_F202500003_01-CDV-200_Deposee.xml.
-     */
-    public function testSerializeCompleteRealMessage(): void
-    {
-        $cdar = $this->buildRealCdarMessage();
-        $xml = $this->serializer->serialize($cdar, true);
-
-        // Assert XML well-formed
-        $doc = new \DOMDocument();
-        $result = $doc->loadXML($xml);
-        $this->assertTrue($result, 'Generated XML should be well-formed');
-
-        // Assert basic structure
-        $this->assertStringContainsString('<?xml version="1.0" encoding="UTF-8"?>', $xml);
-        $this->assertStringContainsString('<rsm:CrossDomainAcknowledgementAndResponse', $xml);
-        $this->assertStringContainsString('<rsm:ExchangedDocumentContext', $xml);
-        $this->assertStringContainsString('<rsm:ExchangedDocument', $xml);
-        $this->assertStringContainsString('<rsm:AcknowledgementDocument', $xml);
-
-        // rsm elements like Name, IssueDateTime, ID
-        $this->assertStringContainsString('<ram:Name', $xml);
-        $this->assertStringContainsString('<ram:IssueDateTime', $xml);
-        $this->assertStringContainsString('<ram:ID', $xml);
-
-        // ram elements under trade parties and referenced document
-        $this->assertStringContainsString('<ram:GlobalID', $xml);
-        $this->assertStringContainsString('<ram:IssuerAssignedID', $xml);
-
-        // Assert all namespaces present
-        $this->assertStringContainsString('xmlns:rsm=', $xml);
-        $this->assertStringContainsString('xmlns:ram=', $xml);
-        $this->assertStringContainsString('xmlns:udt=', $xml);
-        $this->assertStringContainsString('xmlns:qdt=', $xml);
-
-        // Assert key data present
-        $this->assertStringContainsString('REGULATED', $xml);
-        $this->assertStringContainsString('urn.cpro.gouv.fr:1p0:CDV:invoice', $xml);
-        $this->assertStringContainsString('UC1_F202500003_01-CDV-200_Déposée', $xml);
-        $this->assertStringContainsString('100000009', $xml);
-        $this->assertStringContainsString('VENDEUR', $xml);
-        $this->assertStringContainsString('F202500003', $xml);
-        $this->assertStringContainsString('Déposée', $xml);
-    }
-
-    /**
-     * Build a complete CDAR message with real data
-     * Based on UC1_F202500003_01-CDV-200_Deposee.xml.
-     */
-    private function buildRealCdarMessage(): CrossDomainAcknowledgementAndResponse
+    private function buildCdarMessage(): CrossDomainAcknowledgementAndResponse
     {
         // ExchangedDocumentContext
         $businessProcessParam = new DocumentContextParameterType(
@@ -275,26 +104,20 @@ final class SerializerTest extends TestCase
 
         // Trade parties
         $senderParty = new TradePartyType(
-            ID: [],
-            globalID: [],
             roleCode: new PartyRoleCodeType('WK')
         );
 
         $issuerParty = new TradePartyType(
-            ID: [],
-            globalID: [],
             roleCode: new PartyRoleCodeType('WK')
         );
 
         $recipient1 = new TradePartyType(
-            ID: [],
             globalID: [new IDType('100000009', schemeID: '0002')],
             name: new TextType('VENDEUR'),
             roleCode: new PartyRoleCodeType('SE')
         );
 
         $recipient2 = new TradePartyType(
-            ID: [],
             globalID: [new IDType('9998', schemeID: '0238')],
             name: new TextType('PPF'),
             roleCode: new PartyRoleCodeType('DFH')
@@ -313,7 +136,6 @@ final class SerializerTest extends TestCase
 
         // Referenced document
         $refDocIssuerParty = new TradePartyType(
-            ID: [],
             globalID: [new IDType('100000009')]
         );
 

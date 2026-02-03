@@ -22,5 +22,18 @@
         "phpstan/phpstan": "^2.1",
         "friendsofphp/php-cs-fixer": "^3.93",
         "phpunit/phpunit": "^12.5"
+    },
+    "scripts": {
+        "cs-fix": "php-cs-fixer fix",
+        "cs-check": "php-cs-fixer check",
+        "phpstan": "phpstan",
+        "test": "phpunit",
+        "rector": "./tools/bin/rector",
+        "quality-check": [
+            "@rector",
+            "@cs-check",
+            "@phpstan",
+            "@test"
+        ]
     }
 }

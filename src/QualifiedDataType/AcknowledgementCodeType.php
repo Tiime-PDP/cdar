@@ -6,15 +6,11 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType;
 
 use JMS\Serializer\Annotation\XmlAttribute;
 use JMS\Serializer\Annotation\XmlValue;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
 
 /**
  * Qualified acknowledgement code type.
  */
-#[SerializedNamespace(NamespaceUri::QDT)]
-final readonly class AcknowledgementCodeType implements ValueObjectInterface
+final readonly class AcknowledgementCodeType
 {
     /**
      * Acknowledgement code value.

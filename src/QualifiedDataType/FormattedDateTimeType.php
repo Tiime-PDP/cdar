@@ -6,12 +6,10 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType;
 
 use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 
 /**
  * Qualified formatted date time type.
  */
-#[SerializedNamespace(NamespaceUri::QDT)]
 final readonly class FormattedDateTimeType
 {
     /**
