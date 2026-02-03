@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IDType;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
 
 /**
  * Universal communication.
@@ -17,16 +19,18 @@ final readonly class UniversalCommunicationType
     /**
      * Communication URI.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $URIID;
 
     /**
      * Complete number.
      */
-    private ?\TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType $completeNumber;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    private ?TextType $completeNumber;
 
     public function __construct(
         ?IDType $URIID = null,
-        ?\TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType $completeNumber = null,
+        ?TextType $completeNumber = null,
     ) {
         $this->URIID = $URIID;
         $this->completeNumber = $completeNumber;
@@ -37,7 +41,7 @@ final readonly class UniversalCommunicationType
         return $this->URIID;
     }
 
-    public function getCompleteNumber(): ?\TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType
+    public function getCompleteNumber(): ?TextType
     {
         return $this->completeNumber;
     }

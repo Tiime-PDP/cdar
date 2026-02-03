@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType;
 
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
@@ -17,41 +19,49 @@ final readonly class IDType implements ValueObjectInterface
     /**
      * Identifier value.
      */
+    #[XmlValue(cdata: false)]
     private string $value;
 
     /**
      * Scheme identifier.
      */
+    #[XmlAttribute]
     private ?string $schemeID;
 
     /**
      * Scheme name.
      */
+    #[XmlAttribute]
     private ?string $schemeName;
 
     /**
      * Scheme agency identifier.
      */
+    #[XmlAttribute]
     private ?string $schemeAgencyID;
 
     /**
      * Scheme agency name.
      */
+    #[XmlAttribute]
     private ?string $schemeAgencyName;
 
     /**
      * Scheme version identifier.
      */
+    #[XmlAttribute]
     private ?string $schemeVersionID;
 
     /**
      * Scheme data URI.
      */
+    #[XmlAttribute]
     private ?string $schemeDataURI;
 
     /**
      * Scheme URI.
      */
+    #[XmlAttribute]
     private ?string $schemeURI;
 
     public function __construct(

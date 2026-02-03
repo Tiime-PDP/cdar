@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlList;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\ContactTypeCodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
@@ -19,53 +22,64 @@ final readonly class TradeContactType
     /**
      * Contact identifier.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $ID;
 
     /**
      * Person name.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TextType $personName;
 
     /**
      * Department name.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TextType $departmentName;
 
     /**
      * Contact type code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?ContactTypeCodeType $typeCode;
 
     /**
      * Telephone universal communications.
      *
-     * @var array<UniversalCommunicationType>
+     * @var array<UniversalCommunicationType>|null
      */
-    private array $telephoneUniversalCommunication;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\UniversalCommunicationType>')]
+    #[XmlList(entry: 'TelephoneUniversalCommunication', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $telephoneUniversalCommunication;
 
     /**
      * Fax universal communications.
      *
-     * @var array<UniversalCommunicationType>
+     * @var array<UniversalCommunicationType>|null
      */
-    private array $faxUniversalCommunication;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\UniversalCommunicationType>')]
+    #[XmlList(entry: 'FaxUniversalCommunication', inline: true, namespace: NamespaceUri::RAM->value)]
+    private ?array $faxUniversalCommunication;
 
     /**
      * Email URI universal communication.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?UniversalCommunicationType $emailURIUniversalCommunication;
 
     /**
-     * @param array<UniversalCommunicationType> $telephoneUniversalCommunication
-     * @param array<UniversalCommunicationType> $faxUniversalCommunication
+     * @param array<UniversalCommunicationType>|null $telephoneUniversalCommunication
+     * @param array<UniversalCommunicationType>|null $faxUniversalCommunication
      */
     public function __construct(
         ?IDType $ID = null,
         ?TextType $personName = null,
         ?TextType $departmentName = null,
         ?ContactTypeCodeType $typeCode = null,
-        array $telephoneUniversalCommunication = [],
-        array $faxUniversalCommunication = [],
+        ?array $telephoneUniversalCommunication = null,
+        ?array $faxUniversalCommunication = null,
         ?UniversalCommunicationType $emailURIUniversalCommunication = null,
     ) {
         $this->ID = $ID;
@@ -98,17 +112,17 @@ final readonly class TradeContactType
     }
 
     /**
-     * @return array<UniversalCommunicationType>
+     * @return array<UniversalCommunicationType>|null
      */
-    public function getTelephoneUniversalCommunication(): array
+    public function getTelephoneUniversalCommunication(): ?array
     {
         return $this->telephoneUniversalCommunication;
     }
 
     /**
-     * @return array<UniversalCommunicationType>
+     * @return array<UniversalCommunicationType>|null
      */
-    public function getFaxUniversalCommunication(): array
+    public function getFaxUniversalCommunication(): ?array
     {
         return $this->faxUniversalCommunication;
     }

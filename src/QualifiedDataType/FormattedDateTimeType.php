@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType;
 
+use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 
@@ -16,6 +17,7 @@ final readonly class FormattedDateTimeType
     /**
      * Date time string.
      */
+    #[XmlElement(namespace: NamespaceUri::QDT->value)]
     private DateTimeStringType $dateTimeString;
 
     public function __construct(

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType;
 
+use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 
@@ -16,11 +17,13 @@ final readonly class IndicatorType
     /**
      * Indicator string.
      */
+    #[XmlElement(namespace: NamespaceUri::UDT->value)]
     private ?IndicatorStringType $indicatorString;
 
     /**
      * Boolean indicator value.
      */
+    #[XmlElement(namespace: NamespaceUri::UDT->value)]
     private ?bool $indicator;
 
     public function __construct(

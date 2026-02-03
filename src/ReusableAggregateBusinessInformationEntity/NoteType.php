@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\CodeType;
@@ -18,6 +19,7 @@ final readonly class NoteType
     /**
      * Content code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $contentCode;
 
     /**
@@ -25,11 +27,13 @@ final readonly class NoteType
      *
      * @var array<TextType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private array $content;
 
     /**
      * Subject code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $subjectCode;
 
     /**

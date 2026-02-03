@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType;
 
+use JMS\Serializer\Annotation\XmlAttribute;
+use JMS\Serializer\Annotation\XmlValue;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ValueObjectInterface;
@@ -17,16 +19,19 @@ final readonly class MeasureType implements ValueObjectInterface
     /**
      * Measure value.
      */
+    #[XmlValue(cdata: false)]
     private string $value;
 
     /**
      * Unit code.
      */
+    #[XmlAttribute]
     private ?string $unitCode;
 
     /**
      * Unit code list version identifier.
      */
+    #[XmlAttribute]
     private ?string $unitCodeListVersionID;
 
     public function __construct(

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\AmountType;
@@ -26,21 +27,25 @@ final readonly class DocumentCharacteristicType
     /**
      * Identifier.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $ID;
 
     /**
      * Type code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $typeCode;
 
     /**
      * Value changed indicator.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IndicatorType $valueChangedIndicator;
 
     /**
      * Value adjustment direction code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $valueAdjustmentDirectionCode;
 
     /**
@@ -48,6 +53,7 @@ final readonly class DocumentCharacteristicType
      *
      * @var array<TextType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private array $name;
 
     /**
@@ -55,11 +61,13 @@ final readonly class DocumentCharacteristicType
      *
      * @var array<TextType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private array $description;
 
     /**
      * Location.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TextType $location;
 
     /**
@@ -67,41 +75,49 @@ final readonly class DocumentCharacteristicType
      *
      * @var array<TextType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private array $value;
 
     /**
      * Value amount.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?AmountType $valueAmount;
 
     /**
      * Value measure.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?MeasureType $valueMeasure;
 
     /**
      * Value date time.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?DateTimeType $valueDateTime;
 
     /**
      * Value code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?CodeType $valueCode;
 
     /**
      * Value quantity.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?QuantityType $valueQuantity;
 
     /**
      * Value numeric.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?NumericType $valueNumeric;
 
     /**
      * Value percent.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?PercentType $valuePercent;
 
     /**

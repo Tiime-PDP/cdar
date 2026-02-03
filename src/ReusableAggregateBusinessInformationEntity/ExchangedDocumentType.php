@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlList;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentCodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentStatusCodeType;
@@ -22,68 +25,81 @@ final readonly class ExchangedDocumentType
     /**
      * Identifier.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $ID;
 
     /**
      * Name.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TextType $name;
 
     /**
      * Type code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?DocumentCodeType $typeCode;
 
     /**
      * Status code.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?DocumentStatusCodeType $statusCode;
 
     /**
      * Issue date time.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?DateTimeType $issueDateTime;
 
     /**
      * Language identifier.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $languageID;
 
     /**
      * Electronic presentation indicator.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IndicatorType $electronicPresentationIndicator;
 
     /**
      * Version identifier.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $versionID;
 
     /**
      * Global identifier.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IDType $globalID;
 
     /**
      * Included notes.
      *
-     * @var array<NoteType>
+     * @var array<NoteType>|null
      */
-    private array $includedNote;
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    private ?array $includedNote;
 
     /**
      * Effective specified period.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?SpecifiedPeriodType $effectiveSpecifiedPeriod;
 
     /**
      * Sender party.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TradePartyType $senderTradeParty;
 
     /**
      * Issuer party.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?TradePartyType $issuerTradeParty;
 
     /**
@@ -91,6 +107,9 @@ final readonly class ExchangedDocumentType
      *
      * @var array<TradePartyType>
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\TradePartyType>')]
+    #[XmlList(entry: 'RecipientTradeParty', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $recipientTradeParty;
 
     /**
@@ -108,7 +127,7 @@ final readonly class ExchangedDocumentType
         ?IndicatorType $electronicPresentationIndicator = null,
         ?IDType $versionID = null,
         ?IDType $globalID = null,
-        array $includedNote = [],
+        ?array $includedNote = null,
         ?SpecifiedPeriodType $effectiveSpecifiedPeriod = null,
         ?TradePartyType $senderTradeParty = null,
         ?TradePartyType $issuerTradeParty = null,
@@ -175,9 +194,9 @@ final readonly class ExchangedDocumentType
     }
 
     /**
-     * @return array<NoteType>
+     * @return array<NoteType>|null
      */
-    public function getIncludedNote(): array
+    public function getIncludedNote(): ?array
     {
         return $this->includedNote;
     }

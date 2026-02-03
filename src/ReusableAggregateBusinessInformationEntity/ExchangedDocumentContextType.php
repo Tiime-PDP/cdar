@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\XmlElement;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Serializer\SerializedNamespace;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\IndicatorType;
@@ -17,16 +18,19 @@ final readonly class ExchangedDocumentContextType
     /**
      * Test indicator.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?IndicatorType $testIndicator;
 
     /**
      * Business process specified document context parameter.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private ?DocumentContextParameterType $businessProcessSpecifiedDocumentContextParameter;
 
     /**
      * Guideline specified document context parameter.
      */
+    #[XmlElement(namespace: NamespaceUri::RAM->value)]
     private DocumentContextParameterType $guidelineSpecifiedDocumentContextParameter;
 
     public function __construct(
