@@ -95,7 +95,6 @@ final class SerializerTest extends TestCase
 
         $dom = new \DOMDocument();
         $dom->loadXML($xml);
-        // Désactive les erreurs libxml pour les capturer
         libxml_use_internal_errors(true);
 
         // Act
