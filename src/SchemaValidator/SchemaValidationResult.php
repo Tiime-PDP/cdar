@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\SchemaValidator;
 
-final class SchemaValidationResult
+final readonly class SchemaValidationResult
 {
     private bool $isValid;
 
