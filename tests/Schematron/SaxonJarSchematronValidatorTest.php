@@ -42,6 +42,8 @@ final class SaxonJarSchematronValidatorTest extends TestCase
                 xmlFilepath: __DIR__.'/../data/invalid_cdar.xml',
                 xsltFilepath: __DIR__.'/../../xslt/20260216_BR-FR-CDV-Schematron-CDAR_V1.3.0.xsl',
             );
+
+            $this->fail('Expected ValidationFailedException was not thrown.');
         } catch (ValidationFailedException $validationFailedException) {
             $this->assertCount(4, $validationFailedException->errors);
             $error1 = $validationFailedException->errors[0];
