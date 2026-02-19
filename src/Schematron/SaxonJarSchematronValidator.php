@@ -14,7 +14,7 @@ final readonly class SaxonJarSchematronValidator implements SchematronValidatorI
     public function __construct(private string $saxonJar)
     {
         if (false === class_exists(Process::class)) {
-            throw new \LogicException('Symfony Process component is required to use SaxonBusinessRuleValidator. Run "composer require symfony/process"',);
+            throw new \LogicException('Symfony Process component is required to use SaxonBusinessRuleValidator. Run "composer require symfony/process"');
         }
 
         if (false === extension_loaded('dom') || false === extension_loaded('libxml')) {
@@ -36,10 +36,7 @@ final readonly class SaxonJarSchematronValidator implements SchematronValidatorI
         $process->run();
 
         if (false === $process->isSuccessful()) {
-            throw new ValidationFailedException(
-                message: $process->getErrorOutput(),
-                code: $process->getExitCode() ?? 1,
-            );
+            throw new ValidationFailedException(message: $process->getErrorOutput(), code: $process->getExitCode() ?? 1);
         }
 
         $output = mb_trim($process->getOutput());
@@ -48,15 +45,10 @@ final readonly class SaxonJarSchematronValidator implements SchematronValidatorI
 
         try {
             if (false === $doc->loadXML($output)) {
-                throw new ValidationFailedException(
-                    message: 'Failed to parse Schematron validation output: invalid XML.',
-                );
+                throw new ValidationFailedException(message: 'Failed to parse Schematron validation output: invalid XML.');
             }
         } catch (\Throwable $throwable) {
-            throw new ValidationFailedException(
-                message: 'Failed to parse Schematron validation output: '.$throwable->getMessage(),
-                previous: $throwable,
-            );
+            throw new ValidationFailedException(message: 'Failed to parse Schematron validation output: '.$throwable->getMessage(), previous: $throwable);
         }
 
         $xpath = new \DOMXPath($doc);
@@ -65,9 +57,7 @@ final readonly class SaxonJarSchematronValidator implements SchematronValidatorI
         $failedAsserts = $xpath->query('//svrl:failed-assert');
 
         if (false === $failedAsserts) {
-            throw new ValidationFailedException(
-                message: 'Failed to parse Schematron validation output',
-            );
+            throw new ValidationFailedException(message: 'Failed to parse Schematron validation output');
         }
 
         $errors = [];
@@ -83,7 +73,7 @@ final readonly class SaxonJarSchematronValidator implements SchematronValidatorI
 
             $text = null;
             $textElements = $fa->getElementsByTagName('text');
-            if (0 !== $textElements->length && null !== $textElements->item(0)) {
+            if (0 !== $textElements->length && $textElements->item(0) instanceof \DOMElement) {
                 $text = $textElements->item(0)->nodeValue;
             }
 
@@ -100,9 +90,6 @@ final readonly class SaxonJarSchematronValidator implements SchematronValidatorI
             return;
         }
 
-        throw new ValidationFailedException(
-            errors: $errors,
-            message: 'Schematron validation failed',
-        );
+        throw new ValidationFailedException(errors: $errors, message: 'Schematron validation failed');
     }
 }
