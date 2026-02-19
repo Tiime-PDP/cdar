@@ -39,7 +39,7 @@ final readonly class SaxonJarSchematronValidator implements SchematronValidatorI
             throw new ValidationFailedException(message: $process->getErrorOutput(), code: $process->getExitCode() ?? 1);
         }
 
-        $output = mb_trim($process->getOutput());
+        $output = trim($process->getOutput());
 
         $doc = new \DOMDocument();
 
