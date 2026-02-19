@@ -7,9 +7,8 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Schematron;
 interface SchematronValidatorInterface
 {
     /**
-     * @param string $xmlFilepath The path to the XML file to validate against the business rules.
-     * @param string $xsltFilepath The path to the Schematron XSLT file to use for validation.
-     * @return void
+     * @param string $xmlFilepath  the path to the XML file to validate against the business rules
+     * @param string $xsltFilepath the path to the Schematron XSLT file to use for validation
      *
      * @throws ValidationFailedException
      */

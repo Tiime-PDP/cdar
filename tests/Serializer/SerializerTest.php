@@ -58,7 +58,7 @@ final class SerializerTest extends TestCase
         $this->assertSame('REGULATED', $exchangedDocumentContext->getBusinessProcessSpecifiedDocumentContextParameter()?->getID()->getValue());
         $this->assertSame('urn.cpro.gouv.fr:1p0:CDV:invoice', $exchangedDocumentContext->getGuidelineSpecifiedDocumentContextParameter()->getID()->getValue());
 
-        $this->assertSame('UC1_F202500003_01-CDV-200_Déposée', $cdar->getExchangedDocument()->getName()?->getValue());
+        $this->assertSame('UC1_F202500003_01-CDV-200_Deposee', $cdar->getExchangedDocument()->getName()?->getValue());
         $this->assertCount(2, $cdar->getExchangedDocument()->getRecipientTradeParty());
         $recipientTradeParty1 = $cdar->getExchangedDocument()->getRecipientTradeParty()[0];
         $this->assertNotNull($recipientTradeParty1->getGlobalID());
