@@ -29,7 +29,6 @@ In this implementation:
 - **Required PHP extensions:**
   - `dom` - for parsing SVRL XML output
   - `libxml` - for XML handling
-  - `mbstring` - for string operations
 
 ### Composer Dependencies
 
