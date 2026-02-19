@@ -3,13 +3,14 @@
 /.gitignore export-ignore
 /CHANGELOG.md export-ignore
 /CONTRIBUTING.md export-ignore
-/doc export-ignore
+/docs export-ignore
 /tools export-ignore
-/Makefile export-ignore
 /phpunit.xml.dist export-ignore
+/phpunit.xml export-ignore
 /tests export-ignore
 /VERSIONING.md export-ignore
 /.php-cs-fixer.php export-ignore
 /rector.php export-ignore
 /phpstan.neon.dist export-ignore
 /phpstan-baseline.neon export-ignore
+/Dockerfile export-ignore

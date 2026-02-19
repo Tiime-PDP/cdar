@@ -25,7 +25,7 @@ final class SaxonJarSchematronValidatorTest extends TestCase
         // Act
         $validator->validate(
             xmlFilepath: __DIR__.'/../data/UC1_F202500003_01-CDV-200_Deposee.xml',
-            xsltFilepath: __DIR__.'/../../xslt/20260216_BR-FR-CDV-Schematron-CDAR_V1.3.0.xsl',
+            xsltFilepath: __DIR__.'/../data/20260216_BR-FR-CDV-Schematron-CDAR_V1.3.0.xsl',
         );
     }
 
@@ -40,7 +40,7 @@ final class SaxonJarSchematronValidatorTest extends TestCase
         try {
             $validator->validate(
                 xmlFilepath: __DIR__.'/../data/invalid_cdar.xml',
-                xsltFilepath: __DIR__.'/../../xslt/20260216_BR-FR-CDV-Schematron-CDAR_V1.3.0.xsl',
+                xsltFilepath: __DIR__.'/../data/20260216_BR-FR-CDV-Schematron-CDAR_V1.3.0.xsl',
             );
 
             $this->fail('Expected ValidationFailedException was not thrown.');
