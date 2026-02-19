@@ -14,7 +14,7 @@ final readonly class SaxonJarSchematronValidator implements SchematronValidatorI
     public function __construct(private string $saxonJar)
     {
         if (false === class_exists(Process::class)) {
-            throw new \LogicException('Symfony Process component is required to use SaxonBusinessRuleValidator. Run "composer require symfony/process"');
+            throw new \LogicException('Symfony Process component is required to use SaxonJarSchematronValidator. Run "composer require symfony/process"');
         }
 
         if (false === extension_loaded('dom') || false === extension_loaded('libxml')) {
