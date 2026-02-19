@@ -21,6 +21,32 @@ jobs:
               with:
                   php-version: ${{ matrix.php-versions }}
 
+            - name: Cache Saxon HE
+              uses: actions/cache@v5
+              id: saxon-cache
+              with:
+                  path: saxon
+                  key: saxon-he-12.9
+
+            - name: Download Saxon HE 12.9
+              id: saxon_download
+              if: steps.saxon-cache.outputs.cache-hit != 'true'
+              run: |
+                  SAXON_ZIP_URL="https://github.com/Saxonica/Saxon-HE/releases/download/SaxonHE12-9/SaxonHE12-9J.zip"
+                  curl -L -o saxon.zip "$SAXON_ZIP_URL"
+                  unzip -q saxon.zip -d saxon
+                  rm saxon.zip
+
+            - name: Set Saxon JAR path
+              run: |
+                  SAXON_JAR=$(find saxon -type f -name "saxon-he-12.9.jar" | head -n 1)
+                  if [ -z "$SAXON_JAR" ]; then
+                    echo "⚠️ JAR Saxon not found!"
+                    exit 1
+                  fi
+                  echo "SAXON_JAR=$SAXON_JAR" >> $GITHUB_ENV
+                  echo "Saxon JAR path: $SAXON_JAR"
+
             - uses: "ramsey/composer-install@v3"
 
             - name: Run test suite
