@@ -22,7 +22,8 @@
         "friendsofphp/php-cs-fixer": "^3.93",
         "phpunit/phpunit": "^12.5",
         "ext-libxml": "*",
-        "ext-dom": "*"
+        "ext-dom": "*",
+        "symfony/process": "^7.4"
     },
     "scripts": {
         "cs-fix": "php-cs-fixer fix",
