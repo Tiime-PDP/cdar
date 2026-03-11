@@ -80,6 +80,8 @@ final readonly class ExchangedDocumentType
      * @var array<NoteType>|null
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\NoteType>')]
+    #[XmlList(entry: 'IncludedNote', inline: true, namespace: NamespaceUri::RAM->value)]
     private ?array $includedNote;
 
     /**
