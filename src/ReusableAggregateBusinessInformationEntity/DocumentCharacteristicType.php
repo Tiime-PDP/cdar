@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlList;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\AmountType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\CodeType;
@@ -52,6 +54,8 @@ final readonly class DocumentCharacteristicType
      * @var array<TextType>
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'Name', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $name;
 
     /**
@@ -60,6 +64,8 @@ final readonly class DocumentCharacteristicType
      * @var array<TextType>
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'Description', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $description;
 
     /**
@@ -74,6 +80,8 @@ final readonly class DocumentCharacteristicType
      * @var array<TextType>
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'Value', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $value;
 
     /**

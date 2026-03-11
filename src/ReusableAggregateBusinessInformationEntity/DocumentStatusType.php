@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlList;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentStatusCodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\CodeType;
@@ -41,6 +43,8 @@ final readonly class DocumentStatusType
      * @var array<TextType>
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'Reason', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $reason;
 
     /**
@@ -49,6 +53,8 @@ final readonly class DocumentStatusType
      * @var array<TextType>
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'Condition', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $condition;
 
     /**
@@ -63,6 +69,8 @@ final readonly class DocumentStatusType
      * @var array<TextType>
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'ProcessCondition', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $processCondition;
 
     /**
@@ -77,6 +85,8 @@ final readonly class DocumentStatusType
      * @var array<TextType>
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'ReasonInformation', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $reasonInformation;
 
     /**
@@ -91,6 +101,8 @@ final readonly class DocumentStatusType
      * @var array<TextType>
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'ReasonClassification', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $reasonClassification;
 
     /**
@@ -105,6 +117,8 @@ final readonly class DocumentStatusType
      * @var array<TextType>
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'RequestedAction', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $requestedAction;
 
     /**
@@ -131,6 +145,8 @@ final readonly class DocumentStatusType
      * @var array<NoteType>
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\NoteType>')]
+    #[XmlList(entry: 'IncludedNote', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $includedNote;
 
     /**
@@ -139,6 +155,8 @@ final readonly class DocumentStatusType
      * @var array<DocumentCharacteristicType>
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\DocumentCharacteristicType>')]
+    #[XmlList(entry: 'SpecifiedDocumentCharacteristic', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $specifiedDocumentCharacteristic;
 
     /**

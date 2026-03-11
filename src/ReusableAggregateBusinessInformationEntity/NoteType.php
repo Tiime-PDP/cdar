@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity;
 
+use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\XmlElement;
+use JMS\Serializer\Annotation\XmlList;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Enum\NamespaceUri;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\CodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType;
@@ -26,6 +28,8 @@ final readonly class NoteType
      * @var array<TextType>
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'Content', inline: true, namespace: NamespaceUri::RAM->value)]
     private array $content;
 
     /**

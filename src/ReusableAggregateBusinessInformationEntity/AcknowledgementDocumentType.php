@@ -76,6 +76,8 @@ final readonly class AcknowledgementDocumentType
      * @var array<TextType>|null
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'ReasonInformation', inline: true, namespace: NamespaceUri::RAM->value)]
     private ?array $reasonInformation;
 
     /**
@@ -96,6 +98,8 @@ final readonly class AcknowledgementDocumentType
      * @var array<TextType>|null
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'ProcessCondition', inline: true, namespace: NamespaceUri::RAM->value)]
     private ?array $processCondition;
 
     /**
@@ -104,6 +108,8 @@ final readonly class AcknowledgementDocumentType
      * @var array<TextType>|null
      */
     #[XmlElement(namespace: NamespaceUri::RAM->value)]
+    #[Type(name: 'array<TiimePDP\CrossDomainAcknowledgementAndResponse\UnqualifiedDataType\TextType>')]
+    #[XmlList(entry: 'Status', inline: true, namespace: NamespaceUri::RAM->value)]
     private ?array $status;
 
     /**
