@@ -36,11 +36,11 @@ final readonly class UniversalCommunicationType
 
     public function getURIID(): ?IDType
     {
-        return $this->URIID;
+        return $this->URIID ?? null;
     }
 
     public function getCompleteNumber(): ?TextType
     {
-        return $this->completeNumber;
+        return $this->completeNumber ?? null;
     }
 }

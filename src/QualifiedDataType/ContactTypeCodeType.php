@@ -39,6 +39,6 @@ final readonly class ContactTypeCodeType
 
     public function getListAgencyID(): ?string
     {
-        return $this->listAgencyID;
+        return $this->listAgencyID ?? null;
     }
 }

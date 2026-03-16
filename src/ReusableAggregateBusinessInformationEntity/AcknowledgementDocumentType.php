@@ -162,42 +162,42 @@ final readonly class AcknowledgementDocumentType
 
     public function getMultipleReferencesIndicator(): ?IndicatorType
     {
-        return $this->multipleReferencesIndicator;
+        return $this->multipleReferencesIndicator ?? null;
     }
 
     public function getID(): ?IDType
     {
-        return $this->ID;
+        return $this->ID ?? null;
     }
 
     public function getTypeCode(): ?DocumentCodeType
     {
-        return $this->typeCode;
+        return $this->typeCode ?? null;
     }
 
     public function getName(): ?TextType
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 
     public function getIssueDateTime(): ?DateTimeType
     {
-        return $this->issueDateTime;
+        return $this->issueDateTime ?? null;
     }
 
     public function getStatusCode(): ?StatusCodeType
     {
-        return $this->statusCode;
+        return $this->statusCode ?? null;
     }
 
     public function getAcknowledgementStatusCode(): ?AcknowledgementCodeType
     {
-        return $this->acknowledgementStatusCode;
+        return $this->acknowledgementStatusCode ?? null;
     }
 
     public function getItemIdentificationID(): ?IDType
     {
-        return $this->itemIdentificationID;
+        return $this->itemIdentificationID ?? null;
     }
 
     /**
@@ -205,17 +205,17 @@ final readonly class AcknowledgementDocumentType
      */
     public function getReasonInformation(): ?array
     {
-        return $this->reasonInformation;
+        return $this->reasonInformation ?? null;
     }
 
     public function getChannelCode(): ?CodeType
     {
-        return $this->channelCode;
+        return $this->channelCode ?? null;
     }
 
     public function getProcessConditionCode(): ?CodeType
     {
-        return $this->processConditionCode;
+        return $this->processConditionCode ?? null;
     }
 
     /**
@@ -223,7 +223,7 @@ final readonly class AcknowledgementDocumentType
      */
     public function getProcessCondition(): ?array
     {
-        return $this->processCondition;
+        return $this->processCondition ?? null;
     }
 
     /**
@@ -231,7 +231,7 @@ final readonly class AcknowledgementDocumentType
      */
     public function getStatus(): ?array
     {
-        return $this->status;
+        return $this->status ?? null;
     }
 
     /**
@@ -239,6 +239,6 @@ final readonly class AcknowledgementDocumentType
      */
     public function getReferenceReferencedDocument(): ?array
     {
-        return $this->referenceReferencedDocument;
+        return $this->referenceReferencedDocument ?? null;
     }
 }

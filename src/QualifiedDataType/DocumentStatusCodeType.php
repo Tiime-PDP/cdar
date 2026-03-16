@@ -63,21 +63,21 @@ final readonly class DocumentStatusCodeType
 
     public function getListID(): ?string
     {
-        return $this->listID;
+        return $this->listID ?? null;
     }
 
     public function getListAgencyID(): ?string
     {
-        return $this->listAgencyID;
+        return $this->listAgencyID ?? null;
     }
 
     public function getListVersionID(): ?string
     {
-        return $this->listVersionID;
+        return $this->listVersionID ?? null;
     }
 
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 }

@@ -39,6 +39,6 @@ final readonly class NumericType
 
     public function getFormat(): ?string
     {
-        return $this->format;
+        return $this->format ?? null;
     }
 }

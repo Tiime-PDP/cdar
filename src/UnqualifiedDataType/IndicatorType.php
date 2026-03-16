@@ -34,11 +34,11 @@ final readonly class IndicatorType
 
     public function getIndicatorString(): ?IndicatorStringType
     {
-        return $this->indicatorString;
+        return $this->indicatorString ?? null;
     }
 
     public function getIndicator(): ?bool
     {
-        return $this->indicator;
+        return $this->indicator ?? null;
     }
 }

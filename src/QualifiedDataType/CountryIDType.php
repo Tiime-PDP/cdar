@@ -39,6 +39,6 @@ final readonly class CountryIDType
 
     public function getSchemeAgencyID(): ?string
     {
-        return $this->schemeAgencyID;
+        return $this->schemeAgencyID ?? null;
     }
 }

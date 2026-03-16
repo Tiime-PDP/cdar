@@ -63,21 +63,21 @@ final readonly class QuantityType
 
     public function getUnitCode(): ?string
     {
-        return $this->unitCode;
+        return $this->unitCode ?? null;
     }
 
     public function getUnitCodeListID(): ?string
     {
-        return $this->unitCodeListID;
+        return $this->unitCodeListID ?? null;
     }
 
     public function getUnitCodeListAgencyID(): ?string
     {
-        return $this->unitCodeListAgencyID;
+        return $this->unitCodeListAgencyID ?? null;
     }
 
     public function getUnitCodeListAgencyName(): ?string
     {
-        return $this->unitCodeListAgencyName;
+        return $this->unitCodeListAgencyName ?? null;
     }
 }

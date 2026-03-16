@@ -103,46 +103,46 @@ final readonly class CodeType
 
     public function getListID(): ?string
     {
-        return $this->listID;
+        return $this->listID ?? null;
     }
 
     public function getListAgencyID(): ?string
     {
-        return $this->listAgencyID;
+        return $this->listAgencyID ?? null;
     }
 
     public function getListAgencyName(): ?string
     {
-        return $this->listAgencyName;
+        return $this->listAgencyName ?? null;
     }
 
     public function getListVersionID(): ?string
     {
-        return $this->listVersionID;
+        return $this->listVersionID ?? null;
     }
 
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 
     public function getListName(): ?string
     {
-        return $this->listName;
+        return $this->listName ?? null;
     }
 
     public function getLanguageID(): ?string
     {
-        return $this->languageID;
+        return $this->languageID ?? null;
     }
 
     public function getListURI(): ?string
     {
-        return $this->listURI;
+        return $this->listURI ?? null;
     }
 
     public function getListSchemeURI(): ?string
     {
-        return $this->listSchemeURI;
+        return $this->listSchemeURI ?? null;
     }
 }

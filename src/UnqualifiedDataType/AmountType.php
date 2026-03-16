@@ -47,11 +47,11 @@ final readonly class AmountType
 
     public function getCurrencyID(): ?string
     {
-        return $this->currencyID;
+        return $this->currencyID ?? null;
     }
 
     public function getCurrencyCodeListVersionID(): ?string
     {
-        return $this->currencyCodeListVersionID;
+        return $this->currencyCodeListVersionID ?? null;
     }
 }

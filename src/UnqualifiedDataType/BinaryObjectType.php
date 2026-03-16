@@ -79,31 +79,31 @@ final readonly class BinaryObjectType
 
     public function getFormat(): ?string
     {
-        return $this->format;
+        return $this->format ?? null;
     }
 
     public function getMimeCode(): ?string
     {
-        return $this->mimeCode;
+        return $this->mimeCode ?? null;
     }
 
     public function getEncodingCode(): ?string
     {
-        return $this->encodingCode;
+        return $this->encodingCode ?? null;
     }
 
     public function getCharacterSetCode(): ?string
     {
-        return $this->characterSetCode;
+        return $this->characterSetCode ?? null;
     }
 
     public function getUri(): ?string
     {
-        return $this->uri;
+        return $this->uri ?? null;
     }
 
     public function getFilename(): ?string
     {
-        return $this->filename;
+        return $this->filename ?? null;
     }
 }

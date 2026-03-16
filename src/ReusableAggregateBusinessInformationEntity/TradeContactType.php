@@ -91,22 +91,22 @@ final readonly class TradeContactType
 
     public function getID(): ?IDType
     {
-        return $this->ID;
+        return $this->ID ?? null;
     }
 
     public function getPersonName(): ?TextType
     {
-        return $this->personName;
+        return $this->personName ?? null;
     }
 
     public function getDepartmentName(): ?TextType
     {
-        return $this->departmentName;
+        return $this->departmentName ?? null;
     }
 
     public function getTypeCode(): ?ContactTypeCodeType
     {
-        return $this->typeCode;
+        return $this->typeCode ?? null;
     }
 
     /**
@@ -114,7 +114,7 @@ final readonly class TradeContactType
      */
     public function getTelephoneUniversalCommunication(): ?array
     {
-        return $this->telephoneUniversalCommunication;
+        return $this->telephoneUniversalCommunication ?? null;
     }
 
     /**
@@ -122,11 +122,11 @@ final readonly class TradeContactType
      */
     public function getFaxUniversalCommunication(): ?array
     {
-        return $this->faxUniversalCommunication;
+        return $this->faxUniversalCommunication ?? null;
     }
 
     public function getEmailURIUniversalCommunication(): ?UniversalCommunicationType
     {
-        return $this->emailURIUniversalCommunication;
+        return $this->emailURIUniversalCommunication ?? null;
     }
 }

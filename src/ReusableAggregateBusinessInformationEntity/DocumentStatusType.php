@@ -211,17 +211,17 @@ final readonly class DocumentStatusType
 
     public function getReferenceDateTime(): ?DateTimeType
     {
-        return $this->referenceDateTime;
+        return $this->referenceDateTime ?? null;
     }
 
     public function getConditionCode(): ?DocumentStatusCodeType
     {
-        return $this->conditionCode;
+        return $this->conditionCode ?? null;
     }
 
     public function getReasonCode(): ?CodeType
     {
-        return $this->reasonCode;
+        return $this->reasonCode ?? null;
     }
 
     /**
@@ -242,7 +242,7 @@ final readonly class DocumentStatusType
 
     public function getProcessConditionCode(): ?CodeType
     {
-        return $this->processConditionCode;
+        return $this->processConditionCode ?? null;
     }
 
     /**
@@ -255,7 +255,7 @@ final readonly class DocumentStatusType
 
     public function getReasonInformationCode(): ?CodeType
     {
-        return $this->reasonInformationCode;
+        return $this->reasonInformationCode ?? null;
     }
 
     /**
@@ -268,7 +268,7 @@ final readonly class DocumentStatusType
 
     public function getReasonClassificationCode(): ?CodeType
     {
-        return $this->reasonClassificationCode;
+        return $this->reasonClassificationCode ?? null;
     }
 
     /**
@@ -281,7 +281,7 @@ final readonly class DocumentStatusType
 
     public function getRequestedActionCode(): ?CodeType
     {
-        return $this->requestedActionCode;
+        return $this->requestedActionCode ?? null;
     }
 
     /**
@@ -294,17 +294,17 @@ final readonly class DocumentStatusType
 
     public function getInvalidInformation(): ?TextType
     {
-        return $this->invalidInformation;
+        return $this->invalidInformation ?? null;
     }
 
     public function getValidInformation(): ?TextType
     {
-        return $this->validInformation;
+        return $this->validInformation ?? null;
     }
 
     public function getSequenceNumeric(): ?NumericType
     {
-        return $this->sequenceNumeric;
+        return $this->sequenceNumeric ?? null;
     }
 
     /**

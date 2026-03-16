@@ -39,6 +39,6 @@ final readonly class AcknowledgementCodeType
 
     public function getListAgencyID(): ?string
     {
-        return $this->listAgencyID;
+        return $this->listAgencyID ?? null;
     }
 }
