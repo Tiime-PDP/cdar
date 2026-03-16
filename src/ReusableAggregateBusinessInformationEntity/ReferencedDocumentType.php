@@ -278,47 +278,47 @@ final readonly class ReferencedDocumentType
 
     public function getIssuerAssignedID(): ?IDType
     {
-        return $this->issuerAssignedID;
+        return $this->issuerAssignedID ?? null;
     }
 
     public function getStatusCode(): ?DocumentStatusCodeType
     {
-        return $this->statusCode;
+        return $this->statusCode ?? null;
     }
 
     public function getCopyIndicator(): ?IndicatorType
     {
-        return $this->copyIndicator;
+        return $this->copyIndicator ?? null;
     }
 
     public function getLineID(): ?IDType
     {
-        return $this->lineID;
+        return $this->lineID ?? null;
     }
 
     public function getTypeCode(): ?DocumentCodeType
     {
-        return $this->typeCode;
+        return $this->typeCode ?? null;
     }
 
     public function getGlobalID(): ?IDType
     {
-        return $this->globalID;
+        return $this->globalID ?? null;
     }
 
     public function getRevisionID(): ?IDType
     {
-        return $this->revisionID;
+        return $this->revisionID ?? null;
     }
 
     public function getName(): ?TextType
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 
     public function getReceiptDateTime(): ?DateTimeType
     {
-        return $this->receiptDateTime;
+        return $this->receiptDateTime ?? null;
     }
 
     /**
@@ -326,17 +326,17 @@ final readonly class ReferencedDocumentType
      */
     public function getAttachmentBinaryObject(): ?array
     {
-        return $this->attachmentBinaryObject;
+        return $this->attachmentBinaryObject ?? null;
     }
 
     public function getReferenceTypeCode(): ?ReferenceCodeType
     {
-        return $this->referenceTypeCode;
+        return $this->referenceTypeCode ?? null;
     }
 
     public function getLanguageID(): ?LanguageIDType
     {
-        return $this->languageID;
+        return $this->languageID ?? null;
     }
 
     /**
@@ -344,12 +344,12 @@ final readonly class ReferencedDocumentType
      */
     public function getDescription(): ?array
     {
-        return $this->description;
+        return $this->description ?? null;
     }
 
     public function getFormattedIssueDateTime(): ?FormattedDateTimeType
     {
-        return $this->formattedIssueDateTime;
+        return $this->formattedIssueDateTime ?? null;
     }
 
     /**
@@ -357,17 +357,17 @@ final readonly class ReferencedDocumentType
      */
     public function getIncludedAmount(): ?array
     {
-        return $this->includedAmount;
+        return $this->includedAmount ?? null;
     }
 
     public function getVersionID(): ?IDType
     {
-        return $this->versionID;
+        return $this->versionID ?? null;
     }
 
     public function getTotalIssueCountNumeric(): ?NumericType
     {
-        return $this->totalIssueCountNumeric;
+        return $this->totalIssueCountNumeric ?? null;
     }
 
     /**
@@ -375,12 +375,12 @@ final readonly class ReferencedDocumentType
      */
     public function getStatus(): ?array
     {
-        return $this->status;
+        return $this->status ?? null;
     }
 
     public function getProcessConditionCode(): ?CodeType
     {
-        return $this->processConditionCode;
+        return $this->processConditionCode ?? null;
     }
 
     /**
@@ -388,17 +388,17 @@ final readonly class ReferencedDocumentType
      */
     public function getProcessCondition(): ?array
     {
-        return $this->processCondition;
+        return $this->processCondition ?? null;
     }
 
     public function getType(): ?TextType
     {
-        return $this->type;
+        return $this->type ?? null;
     }
 
     public function getIssuerTradeParty(): ?TradePartyType
     {
-        return $this->issuerTradeParty;
+        return $this->issuerTradeParty ?? null;
     }
 
     /**
@@ -406,12 +406,12 @@ final readonly class ReferencedDocumentType
      */
     public function getRecipientTradeParty(): ?array
     {
-        return $this->recipientTradeParty;
+        return $this->recipientTradeParty ?? null;
     }
 
     public function getSenderTradeParty(): ?TradePartyType
     {
-        return $this->senderTradeParty;
+        return $this->senderTradeParty ?? null;
     }
 
     /**
@@ -419,11 +419,11 @@ final readonly class ReferencedDocumentType
      */
     public function getSpecifiedDocumentStatus(): ?array
     {
-        return $this->specifiedDocumentStatus;
+        return $this->specifiedDocumentStatus ?? null;
     }
 
     public function getValiditySpecifiedPeriod(): ?SpecifiedPeriodType
     {
-        return $this->validitySpecifiedPeriod;
+        return $this->validitySpecifiedPeriod ?? null;
     }
 }

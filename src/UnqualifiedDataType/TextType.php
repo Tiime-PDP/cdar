@@ -47,11 +47,11 @@ final readonly class TextType
 
     public function getLanguageID(): ?string
     {
-        return $this->languageID;
+        return $this->languageID ?? null;
     }
 
     public function getLanguageLocaleID(): ?string
     {
-        return $this->languageLocaleID;
+        return $this->languageLocaleID ?? null;
     }
 }

@@ -43,12 +43,12 @@ final readonly class ExchangedDocumentContextType
 
     public function getTestIndicator(): ?IndicatorType
     {
-        return $this->testIndicator;
+        return $this->testIndicator ?? null;
     }
 
     public function getBusinessProcessSpecifiedDocumentContextParameter(): ?DocumentContextParameterType
     {
-        return $this->businessProcessSpecifiedDocumentContextParameter;
+        return $this->businessProcessSpecifiedDocumentContextParameter ?? null;
     }
 
     public function getGuidelineSpecifiedDocumentContextParameter(): DocumentContextParameterType

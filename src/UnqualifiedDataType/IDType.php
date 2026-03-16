@@ -87,36 +87,36 @@ final readonly class IDType
 
     public function getSchemeID(): ?string
     {
-        return $this->schemeID;
+        return $this->schemeID ?? null;
     }
 
     public function getSchemeName(): ?string
     {
-        return $this->schemeName;
+        return $this->schemeName ?? null;
     }
 
     public function getSchemeAgencyID(): ?string
     {
-        return $this->schemeAgencyID;
+        return $this->schemeAgencyID ?? null;
     }
 
     public function getSchemeAgencyName(): ?string
     {
-        return $this->schemeAgencyName;
+        return $this->schemeAgencyName ?? null;
     }
 
     public function getSchemeVersionID(): ?string
     {
-        return $this->schemeVersionID;
+        return $this->schemeVersionID ?? null;
     }
 
     public function getSchemeDataURI(): ?string
     {
-        return $this->schemeDataURI;
+        return $this->schemeDataURI ?? null;
     }
 
     public function getSchemeURI(): ?string
     {
-        return $this->schemeURI;
+        return $this->schemeURI ?? null;
     }
 }

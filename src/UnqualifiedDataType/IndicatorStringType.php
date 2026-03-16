@@ -31,6 +31,6 @@ final class IndicatorStringType
 
     public function getFormat(): ?string
     {
-        return $this->format;
+        return $this->format ?? null;
     }
 }

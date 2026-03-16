@@ -118,61 +118,61 @@ final readonly class TradeAddressType
 
     public function getPostcodeCode(): ?CodeType
     {
-        return $this->postcodeCode;
+        return $this->postcodeCode ?? null;
     }
 
     public function getLineOne(): ?TextType
     {
-        return $this->lineOne;
+        return $this->lineOne ?? null;
     }
 
     public function getLineTwo(): ?TextType
     {
-        return $this->lineTwo;
+        return $this->lineTwo ?? null;
     }
 
     public function getLineThree(): ?TextType
     {
-        return $this->lineThree;
+        return $this->lineThree ?? null;
     }
 
     public function getLineFour(): ?TextType
     {
-        return $this->lineFour;
+        return $this->lineFour ?? null;
     }
 
     public function getLineFive(): ?TextType
     {
-        return $this->lineFive;
+        return $this->lineFive ?? null;
     }
 
     public function getStreetName(): ?TextType
     {
-        return $this->streetName;
+        return $this->streetName ?? null;
     }
 
     public function getCityName(): ?TextType
     {
-        return $this->cityName;
+        return $this->cityName ?? null;
     }
 
     public function getCountryID(): ?CountryIDType
     {
-        return $this->countryID;
+        return $this->countryID ?? null;
     }
 
     public function getCountryName(): ?TextType
     {
-        return $this->countryName;
+        return $this->countryName ?? null;
     }
 
     public function getCountrySubDivisionID(): ?IDType
     {
-        return $this->countrySubDivisionID;
+        return $this->countrySubDivisionID ?? null;
     }
 
     public function getCountrySubDivisionName(): ?TextType
     {
-        return $this->countrySubDivisionName;
+        return $this->countrySubDivisionName ?? null;
     }
 }

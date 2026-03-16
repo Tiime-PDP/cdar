@@ -150,47 +150,47 @@ final readonly class ExchangedDocumentType
 
     public function getID(): ?IDType
     {
-        return $this->ID;
+        return $this->ID ?? null;
     }
 
     public function getName(): ?TextType
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 
     public function getTypeCode(): ?DocumentCodeType
     {
-        return $this->typeCode;
+        return $this->typeCode ?? null;
     }
 
     public function getStatusCode(): ?DocumentStatusCodeType
     {
-        return $this->statusCode;
+        return $this->statusCode ?? null;
     }
 
     public function getIssueDateTime(): ?DateTimeType
     {
-        return $this->issueDateTime;
+        return $this->issueDateTime ?? null;
     }
 
     public function getLanguageID(): ?IDType
     {
-        return $this->languageID;
+        return $this->languageID ?? null;
     }
 
     public function getElectronicPresentationIndicator(): ?IndicatorType
     {
-        return $this->electronicPresentationIndicator;
+        return $this->electronicPresentationIndicator ?? null;
     }
 
     public function getVersionID(): ?IDType
     {
-        return $this->versionID;
+        return $this->versionID ?? null;
     }
 
     public function getGlobalID(): ?IDType
     {
-        return $this->globalID;
+        return $this->globalID ?? null;
     }
 
     /**
@@ -198,22 +198,22 @@ final readonly class ExchangedDocumentType
      */
     public function getIncludedNote(): ?array
     {
-        return $this->includedNote;
+        return $this->includedNote ?? null;
     }
 
     public function getEffectiveSpecifiedPeriod(): ?SpecifiedPeriodType
     {
-        return $this->effectiveSpecifiedPeriod;
+        return $this->effectiveSpecifiedPeriod ?? null;
     }
 
     public function getSenderTradeParty(): ?TradePartyType
     {
-        return $this->senderTradeParty;
+        return $this->senderTradeParty ?? null;
     }
 
     public function getIssuerTradeParty(): ?TradePartyType
     {
-        return $this->issuerTradeParty;
+        return $this->issuerTradeParty ?? null;
     }
 
     /**

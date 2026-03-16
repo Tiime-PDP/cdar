@@ -47,11 +47,11 @@ final readonly class MeasureType
 
     public function getUnitCode(): ?string
     {
-        return $this->unitCode;
+        return $this->unitCode ?? null;
     }
 
     public function getUnitCodeListVersionID(): ?string
     {
-        return $this->unitCodeListVersionID;
+        return $this->unitCodeListVersionID ?? null;
     }
 }

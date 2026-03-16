@@ -99,7 +99,7 @@ final readonly class TradePartyType
      */
     public function getID(): ?array
     {
-        return $this->ID;
+        return $this->ID ?? null;
     }
 
     /**
@@ -107,17 +107,17 @@ final readonly class TradePartyType
      */
     public function getGlobalID(): ?array
     {
-        return $this->globalID;
+        return $this->globalID ?? null;
     }
 
     public function getName(): ?TextType
     {
-        return $this->name;
+        return $this->name ?? null;
     }
 
     public function getRoleCode(): ?PartyRoleCodeType
     {
-        return $this->roleCode;
+        return $this->roleCode ?? null;
     }
 
     /**
@@ -125,16 +125,16 @@ final readonly class TradePartyType
      */
     public function getDefinedTradeContact(): ?array
     {
-        return $this->definedTradeContact;
+        return $this->definedTradeContact ?? null;
     }
 
     public function getPostalTradeAddress(): ?TradeAddressType
     {
-        return $this->postalTradeAddress;
+        return $this->postalTradeAddress ?? null;
     }
 
     public function getURIUniversalCommunication(): ?UniversalCommunicationType
     {
-        return $this->URIUniversalCommunication;
+        return $this->URIUniversalCommunication ?? null;
     }
 }

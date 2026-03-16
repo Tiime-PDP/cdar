@@ -167,22 +167,22 @@ final readonly class DocumentCharacteristicType
 
     public function getID(): ?IDType
     {
-        return $this->ID;
+        return $this->ID ?? null;
     }
 
     public function getTypeCode(): ?CodeType
     {
-        return $this->typeCode;
+        return $this->typeCode ?? null;
     }
 
     public function getValueChangedIndicator(): ?IndicatorType
     {
-        return $this->valueChangedIndicator;
+        return $this->valueChangedIndicator ?? null;
     }
 
     public function getValueAdjustmentDirectionCode(): ?CodeType
     {
-        return $this->valueAdjustmentDirectionCode;
+        return $this->valueAdjustmentDirectionCode ?? null;
     }
 
     /**
@@ -203,7 +203,7 @@ final readonly class DocumentCharacteristicType
 
     public function getLocation(): ?TextType
     {
-        return $this->location;
+        return $this->location ?? null;
     }
 
     /**
@@ -216,36 +216,36 @@ final readonly class DocumentCharacteristicType
 
     public function getValueAmount(): ?AmountType
     {
-        return $this->valueAmount;
+        return $this->valueAmount ?? null;
     }
 
     public function getValueMeasure(): ?MeasureType
     {
-        return $this->valueMeasure;
+        return $this->valueMeasure ?? null;
     }
 
     public function getValueDateTime(): ?DateTimeType
     {
-        return $this->valueDateTime;
+        return $this->valueDateTime ?? null;
     }
 
     public function getValueCode(): ?CodeType
     {
-        return $this->valueCode;
+        return $this->valueCode ?? null;
     }
 
     public function getValueQuantity(): ?QuantityType
     {
-        return $this->valueQuantity;
+        return $this->valueQuantity ?? null;
     }
 
     public function getValueNumeric(): ?NumericType
     {
-        return $this->valueNumeric;
+        return $this->valueNumeric ?? null;
     }
 
     public function getValuePercent(): ?PercentType
     {
-        return $this->valuePercent;
+        return $this->valuePercent ?? null;
     }
 }

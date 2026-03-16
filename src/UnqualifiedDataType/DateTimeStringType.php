@@ -34,6 +34,6 @@ final class DateTimeStringType
 
     public function getFormat(): ?string
     {
-        return $this->format;
+        return $this->format ?? null;
     }
 }

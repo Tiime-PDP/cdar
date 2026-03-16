@@ -53,7 +53,7 @@ final readonly class NoteType
 
     public function getContentCode(): ?CodeType
     {
-        return $this->contentCode;
+        return $this->contentCode ?? null;
     }
 
     /**
@@ -66,6 +66,6 @@ final readonly class NoteType
 
     public function getSubjectCode(): ?CodeType
     {
-        return $this->subjectCode;
+        return $this->subjectCode ?? null;
     }
 }

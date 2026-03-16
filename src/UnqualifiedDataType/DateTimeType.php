@@ -36,11 +36,11 @@ final readonly class DateTimeType
 
     public function getDateTimeString(): ?DateTimeStringType
     {
-        return $this->dateTimeString;
+        return $this->dateTimeString ?? null;
     }
 
     public function getDateTime(): ?\DateTimeImmutable
     {
-        return $this->dateTime;
+        return $this->dateTime ?? null;
     }
 }

@@ -31,11 +31,11 @@ final readonly class SpecifiedPeriodType
 
     public function getStartDateTime(): ?DateTimeType
     {
-        return $this->startDateTime;
+        return $this->startDateTime ?? null;
     }
 
     public function getEndDateTime(): ?DateTimeType
     {
-        return $this->endDateTime;
+        return $this->endDateTime ?? null;
     }
 }
