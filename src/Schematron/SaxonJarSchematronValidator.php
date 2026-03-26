@@ -20,6 +20,10 @@ final readonly class SaxonJarSchematronValidator implements SchematronValidatorI
         if (false === extension_loaded('dom') || false === extension_loaded('libxml')) {
             throw new \LogicException('DOM and Libxml extensions are required to validate business rules.');
         }
+
+        if (false === is_file($this->saxonJar) || false === is_readable($this->saxonJar)) {
+            throw new \LogicException(sprintf('Saxon JAR file "%s" does not exist or is not readable.', $this->saxonJar));
+        }
     }
 
     public function validate(string $xmlFilepath, string $xsltFilepath): void

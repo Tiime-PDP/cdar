@@ -1670,7 +1670,7 @@
         [BR-FR-CDV-CL-09/MDT-113_501] : Le code motif de statut (MDT-113) : "<xsl:text/>
                   <xsl:value-of select="."/>
                   <xsl:text/>", n'est pas dans la liste des codes autorisés pour le statut IRRECEVABLE (501) :
-        "IRR_VIDE_F", "IRR_TYPE_F", "IRR_SYNTAX", "IRR_TAILLE_PJ", "IRR_NOM_PJ", "IRR_VID_PJ", "IRR_EXT_DOC, "IRR_TAILLE_F", "IRR_ANTIVIRUS". Veuillez corriger cette valeur si nécessaire.
+        "IRR_VIDE_F", "IRR_TYPE_F", "IRR_SYNTAX", "IRR_TAILLE_PJ", "IRR_NOM_PJ", "IRR_VID_PJ", "IRR_EXT_DOC", "IRR_TAILLE_F", "IRR_ANTIVIRUS". Veuillez corriger cette valeur si nécessaire.
       </svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
