@@ -47,7 +47,7 @@ jobs:
                   echo "SAXON_JAR=$SAXON_JAR" >> $GITHUB_ENV
                   echo "Saxon JAR path: $SAXON_JAR"
 
-            - uses: "ramsey/composer-install@v3"
+            - uses: "ramsey/composer-install@v4"
 
             - name: Run test suite
               run: ./vendor/bin/phpunit
