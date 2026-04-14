@@ -6,15 +6,15 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Tests\SchemaValidator;
 
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\SchemaValidator\SchemaValidator;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\SchemaValidator\D22BSchemaValidator;
 
-#[CoversClass(SchemaValidator::class)]
-final class SchemaValidatorTest extends TestCase
+#[CoversClass(D22BSchemaValidator::class)]
+final class D23BSchemaValidatorTest extends TestCase
 {
     public function testInvalidXml(): void
     {
         // Arrange
-        $validator = new SchemaValidator();
+        $validator = new D22BSchemaValidator();
         /** @var string $xml */
         $xml = file_get_contents(__DIR__.'/../data/invalid_cdar.xml');
 
@@ -50,7 +50,7 @@ final class SchemaValidatorTest extends TestCase
     public function testValidXml(): void
     {
         // Arrange
-        $validator = new SchemaValidator();
+        $validator = new D22BSchemaValidator();
         /** @var string $xml */
         $xml = file_get_contents(__DIR__.'/../data/UC1_F202500003_01-CDV-200_Deposee.xml');
 
