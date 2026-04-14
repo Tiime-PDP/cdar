@@ -98,7 +98,7 @@ final class SerializerTest extends TestCase
         libxml_use_internal_errors(true);
 
         // Act
-        $isValid = $dom->schemaValidate(__DIR__.'/../../xsd/uncefact/CrossDomainAcknowledgementAndResponse_100pD23B.xsd');
+        $isValid = $dom->schemaValidate(__DIR__.'/../../xsd/d23b/CrossDomainAcknowledgementAndResponse_100pD23B.xsd');
 
         // Assert
         $errors = libxml_get_errors();

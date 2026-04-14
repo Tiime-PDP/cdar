@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\SchemaValidator;
 
-final readonly class SchemaValidator implements SchemaValidatorInterface
+final readonly class D22BSchemaValidator implements SchemaValidatorInterface
 {
     /**
      * @throws \RuntimeException
@@ -32,7 +32,7 @@ final readonly class SchemaValidator implements SchemaValidatorInterface
             );
         }
 
-        $isValid = $dom->schemaValidate(__DIR__.'/../../xsd/uncefact/CrossDomainAcknowledgementAndResponse_100pD23B.xsd');
+        $isValid = $dom->schemaValidate(__DIR__.'/../../xsd/d22b/uncoupled/CrossDomainAcknowledgementAndResponse_100pD22B.xsd');
 
         $libXmlErrors = libxml_get_errors();
         libxml_use_internal_errors(false);
