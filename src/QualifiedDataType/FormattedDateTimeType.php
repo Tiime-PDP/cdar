@@ -16,15 +16,15 @@ final readonly class FormattedDateTimeType
      * Date time string.
      */
     #[XmlElement(namespace: NamespaceUri::QDT->value)]
-    private DateTimeStringType $dateTimeString;
+    private FormattedDateTimeStringType $dateTimeString;
 
     public function __construct(
-        DateTimeStringType $dateTimeString,
+        FormattedDateTimeStringType $dateTimeString,
     ) {
         $this->dateTimeString = $dateTimeString;
     }
 
-    public function getDateTimeString(): DateTimeStringType
+    public function getDateTimeString(): FormattedDateTimeStringType
     {
         return $this->dateTimeString;
     }
