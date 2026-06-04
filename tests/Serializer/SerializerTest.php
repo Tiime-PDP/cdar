@@ -7,9 +7,9 @@ namespace TiimePDP\CrossDomainAcknowledgementAndResponse\Tests\Serializer;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist\DocumentNameCode;
-use TiimePDP\CrossDomainAcknowledgementAndResponse\Codelist\TimePointFormatCode;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\CrossDomainAcknowledgementAndResponse;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DocumentCodeType;
+use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\FormattedDateTimeStringType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\FormattedDateTimeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\PartyRoleCodeType;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\ReusableAggregateBusinessInformationEntity\AcknowledgementDocumentType;
@@ -190,7 +190,7 @@ final class SerializerTest extends TestCase
                 dateTimeString: new DateTimeStringType('20250701151500', '204'),
             ),
             formattedIssueDateTime: new FormattedDateTimeType(
-                dateTimeString: new \TiimePDP\CrossDomainAcknowledgementAndResponse\QualifiedDataType\DateTimeStringType('20250701', format: TimePointFormatCode::CCYYMMDD)
+                dateTimeString: new FormattedDateTimeStringType('20250701', format: '102')
             ),
             processConditionCode: new CodeType('200'),
             processCondition: [new TextType('Déposée')],
