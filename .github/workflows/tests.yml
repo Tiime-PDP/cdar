@@ -22,7 +22,7 @@ jobs:
                   php-version: ${{ matrix.php-versions }}
 
             - name: Cache Saxon HE
-              uses: actions/cache@v6
+              uses: actions/cache@v6.1.0
               id: saxon-cache
               with:
                   path: saxon
