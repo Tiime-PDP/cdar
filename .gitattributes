@@ -14,3 +14,7 @@
 /phpstan.neon.dist export-ignore
 /phpstan-baseline.neon export-ignore
 /Dockerfile export-ignore
+*.xsl linguist-vendored
+*.xslt linguist-vendored
+*.xsd linguist-vendored
+*.sch linguist-vendored
