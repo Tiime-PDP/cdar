@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace TiimePDP\CrossDomainAcknowledgementAndResponse\SchemaValidator;
 
+/**
+ * @see \TiimePDP\CrossDomainAcknowledgementAndResponse\Tests\SchemaValidator\D23BSchemaValidatorTest
+ */
 final readonly class D23BSchemaValidator implements SchemaValidatorInterface
 {
     /**
