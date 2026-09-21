@@ -8,6 +8,9 @@ use JMS\Serializer\Naming\CamelCaseNamingStrategy;
 use JMS\Serializer\SerializerBuilder;
 use TiimePDP\CrossDomainAcknowledgementAndResponse\CrossDomainAcknowledgementAndResponse;
 
+/**
+ * @see \TiimePDP\CrossDomainAcknowledgementAndResponse\Tests\Serializer\SerializerTest
+ */
 final class Serializer implements SerializerInterface
 {
     private \JMS\Serializer\Serializer $serializer;
@@ -32,7 +35,7 @@ final class Serializer implements SerializerInterface
         try {
             return $this->serializer->serialize($cdar, 'xml');
         } catch (\Throwable $throwable) {
-            throw new SerializationException(message: 'An error occurred during serialization. Error: '.$throwable->getMessage(), previous: $throwable);
+            throw new SerializationException(message: 'An error occurred during serialization. Error: '.$throwable->getMessage(), code: $throwable->getCode(), previous: $throwable);
         }
     }
 
@@ -47,7 +50,7 @@ final class Serializer implements SerializerInterface
 
             return $cdar;
         } catch (\Throwable $throwable) {
-            throw new SerializationException(message: 'An error occurred during deserialization. Error: '.$throwable->getMessage(), previous: $throwable);
+            throw new SerializationException(message: 'An error occurred during deserialization. Error: '.$throwable->getMessage(), code: $throwable->getCode(), previous: $throwable);
         }
     }
 }
